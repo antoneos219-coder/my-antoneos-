@@ -3,328 +3,838 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#0f172a">
-    <meta name="description" content="الموقع الشخصي لأنطونيوس ميخائيل، طالب ومبرمج شغوف بتطوير المواقع.">
-    <title>المبرمج أنطونيوس ميخائيل | الموقع الشخصي</title>
-
+    <meta name="theme-color" content="#090b12">
+    <meta name="description" content="الموقع الشخصي لأنطونيوس ميخائيل، طالب ومبرمج شغوف بتطوير المواقع والتكنولوجيا.">
+    <title>أنطونيوس ميخائيل | عالمي البرمجي</title>
     <style>
         :root {
             color-scheme: dark;
-            --primary-color: #0f172a;
-            --accent-color: #38bdf8;
-            --text-color: #e2e8f0;
-            --muted-color: #94a3b8;
-            --card-bg: #1e293b;
-            --border-color: #334155;
+            --page: #090b12;
+            --page-soft: #0e1421;
+            --surface: #111827;
+            --surface-raised: #151e2f;
+            --text: #f5f2ea;
+            --muted: #a4adbd;
+            --gold: #d7b56d;
+            --gold-bright: #f1d795;
+            --blue: #16315b;
+            --line: rgb(215 181 109 / 20%);
+            --shadow: 0 24px 70px rgb(0 0 0 / 28%);
+            --radius: 22px;
         }
 
-        * {
-            box-sizing: border-box;
+        body[data-theme="light"] {
+            color-scheme: light;
+            --page: #f5f3ed;
+            --page-soft: #edeae2;
+            --surface: #fffefa;
+            --surface-raised: #f5f1e7;
+            --text: #1d2430;
+            --muted: #586273;
+            --gold: #9a7025;
+            --gold-bright: #765317;
+            --blue: #d9e5f5;
+            --line: rgb(91 73 37 / 19%);
+            --shadow: 0 24px 70px rgb(40 35 25 / 10%);
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        * { box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; scroll-padding-top: 92px; }
 
         body {
             min-width: 320px;
             margin: 0;
-            background-color: var(--primary-color);
-            color: var(--text-color);
+            overflow-x: hidden;
+            background:
+                radial-gradient(ellipse at 12% 9%, rgb(22 49 91 / 32%), transparent 32rem),
+                radial-gradient(ellipse at 92% 35%, rgb(153 113 40 / 9%), transparent 30rem),
+                var(--page);
+            color: var(--text);
             font-family: "Segoe UI", Tahoma, Arial, sans-serif;
-            line-height: 1.7;
+            line-height: 1.75;
+            transition: background-color .25s ease, color .25s ease;
         }
 
-        a {
-            color: inherit;
-        }
+        a { color: inherit; }
+        button, input { font: inherit; }
+        button { color: inherit; }
+        img, svg { max-width: 100%; }
+        [hidden] { display: none !important; }
 
-        a:focus-visible {
-            outline: 2px solid var(--accent-color);
+        a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visible {
+            outline: 2px solid var(--gold-bright);
             outline-offset: 4px;
-            border-radius: 4px;
         }
+
+        .container { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
 
         .site-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-            padding: 16px max(5%, calc((100% - 1120px) / 2));
-            background-color: var(--card-bg);
-            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            z-index: 20;
+            top: 0;
+            border-bottom: 1px solid var(--line);
+            background: color-mix(in srgb, var(--page) 86%, transparent);
+            backdrop-filter: blur(18px);
         }
 
-        .logo {
-            color: var(--accent-color);
-            font-size: 1.25rem;
-            font-weight: 700;
+        .header-inner {
+            display: flex;
+            min-height: 76px;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .brand {
+            color: var(--gold-bright);
+            font-size: 1.04rem;
+            font-weight: 800;
             text-decoration: none;
             white-space: nowrap;
         }
 
-        nav {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px 20px;
-        }
+        .brand span { color: var(--muted); font-size: .77rem; font-weight: 500; }
+        .header-actions, .main-nav { display: flex; align-items: center; gap: 18px; }
+        .main-nav a { color: var(--muted); font-size: .9rem; text-decoration: none; transition: color .2s ease; }
+        .main-nav a:hover { color: var(--gold-bright); }
 
-        nav a {
-            padding: 6px 0;
-            color: var(--text-color);
-            text-decoration: none;
-        }
-
-        nav a:hover {
-            color: var(--accent-color);
-        }
-
-        .hero-section {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 48px;
-            width: min(100% - 40px, 1120px);
-            min-height: 410px;
-            margin: 0 auto;
-            padding: 56px 0;
-        }
-
-        .hero-text,
-        .hero-image {
-            flex: 1 1 0;
-            min-width: 0;
-        }
-
-        .hero-text h1 {
-            margin: 0 0 16px;
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-            line-height: 1.4;
-        }
-
-        .hero-text h1 span {
-            color: var(--accent-color);
-        }
-
-        .hero-text p {
-            margin: 0 0 14px;
-            color: var(--muted-color);
-            font-size: 1.05rem;
-        }
-
-        .hero-image {
-            display: flex;
-            justify-content: center;
-        }
-
-        .hero-image img {
-            display: block;
-            width: min(320px, 100%);
-            aspect-ratio: 1;
-            border: 4px solid var(--accent-color);
+        .icon-button, .menu-toggle {
+            display: inline-grid;
+            width: 42px;
+            height: 42px;
+            place-items: center;
+            border: 1px solid var(--line);
             border-radius: 50%;
-            background-color: var(--card-bg);
-            box-shadow: 0 0 24px rgb(56 189 248 / 18%);
-            object-fit: cover;
+            background: var(--surface);
+            cursor: pointer;
         }
 
-        .section-title {
-            margin: 20px 16px 28px;
-            color: var(--accent-color);
-            font-size: clamp(1.5rem, 4vw, 2rem);
-            text-align: center;
-        }
+        .menu-toggle { display: none; border-radius: 12px; }
+        .icon-button svg, .menu-toggle svg { width: 19px; height: 19px; }
 
-        .languages-container {
+        .hero {
+            position: relative;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
-            gap: 20px;
-            width: min(100% - 40px, 1120px);
-            margin: 0 auto 64px;
+            min-height: 640px;
+            align-items: center;
+            grid-template-columns: 1.04fr .96fr;
+            gap: clamp(36px, 7vw, 92px);
+            padding-block: 74px 90px;
+            isolation: isolate;
         }
 
-        .lang-card {
-            padding: 22px;
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
+        .hero::before {
+            position: absolute;
+            z-index: -1;
+            top: 9%;
+            left: 28%;
+            width: 440px;
+            height: 440px;
+            border: 1px solid rgb(215 181 109 / 9%);
+            border-radius: 50%;
+            box-shadow: 0 0 90px rgb(215 181 109 / 7%), inset 0 0 80px rgb(22 49 91 / 18%);
+            content: "";
+            animation: orbit 28s linear infinite;
+        }
+
+        .hero-copy { position: relative; z-index: 1; }
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            margin: 0 0 18px;
+            color: var(--gold-bright);
+            font-size: .88rem;
+            font-weight: 700;
+            letter-spacing: .03em;
+        }
+
+        .eyebrow::before {
+            width: 24px;
+            height: 1px;
+            background: var(--gold);
+            content: "";
+        }
+
+        h1, h2, h3, p { margin-top: 0; }
+        .hero h1 { margin-bottom: 14px; font-size: clamp(2.5rem, 6vw, 4.8rem); line-height: 1.2; }
+        .hero h1 span { color: var(--gold-bright); }
+        .hero-lead { margin-bottom: 14px; color: var(--gold-bright); font-size: clamp(1.2rem, 2.5vw, 1.55rem); font-weight: 700; }
+        .hero-description { max-width: 590px; margin-bottom: 28px; color: var(--muted); font-size: 1.05rem; }
+        .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+        .button {
+            display: inline-flex;
+            min-height: 48px;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            padding: 10px 20px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            background: var(--surface);
+            color: var(--text);
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform .2s ease, border-color .2s ease, background .2s ease;
+        }
+
+        .button:hover { transform: translateY(-3px); border-color: var(--gold); }
+        .button-primary { border-color: transparent; background: linear-gradient(120deg, #c59b4f, #f0d894); color: #14120e; }
+        .button-primary:hover { background: linear-gradient(120deg, #d6ad61, #f8e6ae); }
+        .button svg { width: 17px; height: 17px; }
+
+        .hero-visual { position: relative; width: min(100%, 430px); justify-self: center; }
+        .hero-photo-frame {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 4 / 4.55;
+            border: 1px solid rgb(215 181 109 / 58%);
+            border-radius: 48% 48% 24px 24px;
+            background: linear-gradient(145deg, #15233a, #080a10 72%);
+            box-shadow: var(--shadow), 0 0 55px rgb(38 89 148 / 20%);
+        }
+
+        .hero-photo-frame::after {
+            position: absolute;
+            inset: 45% 0 0;
+            background: linear-gradient(transparent, rgb(8 10 16 / 30%));
+            content: "";
+            pointer-events: none;
+        }
+
+        .hero-photo-frame img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+        .visual-code {
+            position: absolute;
+            z-index: 2;
+            right: -24px;
+            bottom: 30px;
+            padding: 13px 17px;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            background: color-mix(in srgb, var(--surface) 88%, transparent);
+            box-shadow: var(--shadow);
+            color: var(--gold-bright);
+            direction: ltr;
+            font: 600 .82rem/1.8 Consolas, monospace;
+            backdrop-filter: blur(12px);
+        }
+
+        .code-symbol { color: #70b8ff; }
+        .section { padding-block: 82px; }
+        .section-heading { max-width: 680px; margin: 0 auto 38px; text-align: center; }
+        .section-heading .eyebrow { justify-content: center; }
+        .section-heading h2 { margin-bottom: 10px; font-size: clamp(1.8rem, 4vw, 2.55rem); }
+        .section-heading p { margin-bottom: 0; color: var(--muted); }
+        .section-alt { border-block: 1px solid var(--line); background: linear-gradient(120deg, rgb(20 39 68 / 24%), transparent 48%, rgb(154 112 37 / 5%)); }
+
+        .search-wrap { position: relative; width: min(100%, 570px); margin: 0 auto 26px; }
+        .search-wrap svg { position: absolute; top: 50%; right: 17px; width: 19px; transform: translateY(-50%); color: var(--muted); }
+        .search-input {
+            width: 100%;
+            min-height: 52px;
+            padding: 12px 48px 12px 16px;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            background: var(--surface);
+            color: var(--text);
+        }
+
+        .language-grid, .tech-grid, .gallery-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+
+        .language-card, .tech-card, .project-card, .contact-card {
+            min-width: 0;
+            padding: 24px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: linear-gradient(145deg, var(--surface-raised), var(--surface));
+            box-shadow: 0 12px 36px rgb(0 0 0 / 10%);
+            transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+        }
+
+        .language-card:hover, .tech-card:hover, .project-card:hover, .contact-card:hover {
+            transform: translateY(-5px);
+            border-color: rgb(215 181 109 / 60%);
+            box-shadow: var(--shadow);
+        }
+
+        .card-top { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+        .language-mark {
+            display: grid;
+            width: 50px;
+            height: 50px;
+            flex: 0 0 auto;
+            place-items: center;
+            border: 1px solid color-mix(in srgb, var(--mark-color) 45%, transparent);
+            border-radius: 15px;
+            background: color-mix(in srgb, var(--mark-color) 14%, var(--surface));
+            color: var(--mark-color);
+            font: 800 .85rem/1 Consolas, monospace;
+        }
+
+        .language-card h3, .tech-card h3 { margin: 0; font-size: 1.2rem; }
+        .language-card .subtitle { display: block; color: var(--muted); font-size: .82rem; font-weight: 400; }
+        .language-card p, .tech-card p { color: var(--muted); font-size: .94rem; }
+        .card-label { margin-bottom: 4px; color: var(--gold-bright); font-size: .82rem; font-weight: 700; }
+        .language-card .compact-list { display: flex; flex-wrap: wrap; gap: 7px; margin: 0 0 17px; padding: 0; list-style: none; }
+        .compact-list li { padding: 4px 10px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font-size: .8rem; }
+        .skill-field { display: grid; gap: 6px; margin-block: 16px; }
+        .skill-field label { color: var(--muted); font-size: .83rem; }
+        .skill-input {
+            width: 100%;
+            min-height: 40px;
+            padding: 7px 11px;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            background: var(--page-soft);
+            color: var(--text);
+        }
+
+        .language-card details { border-top: 1px solid var(--line); padding-top: 13px; }
+        .language-card summary { color: var(--gold-bright); cursor: pointer; font-size: .9rem; font-weight: 700; }
+        .lesson-content { padding-top: 13px; }
+        .lesson-content h4 { margin: 12px 0 4px; font-size: .9rem; }
+        .lesson-content p { margin-bottom: 9px; font-size: .87rem; }
+        pre {
+            overflow-x: auto;
+            margin: 8px 0 12px;
+            padding: 13px;
+            border: 1px solid var(--line);
             border-radius: 12px;
-            transition: transform 0.2s ease, border-color 0.2s ease;
+            background: #080d16;
+            color: #d8e6f4;
+            direction: ltr;
+            text-align: left;
+            font: .81rem/1.65 Consolas, "Courier New", monospace;
         }
 
-        .lang-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--accent-color);
+        body[data-theme="light"] pre { background: #1a2433; color: #eff5ff; }
+        .empty-state { grid-column: 1 / -1; margin: 0; padding: 28px; border: 1px dashed var(--line); border-radius: 16px; color: var(--muted); text-align: center; }
+
+        .tech-card { padding: 20px; }
+        .tech-icon { display: grid; width: 44px; height: 44px; place-items: center; margin-bottom: 14px; border-radius: 14px; background: rgb(215 181 109 / 11%); color: var(--gold-bright); }
+        .tech-icon svg { width: 22px; height: 22px; }
+
+        .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; align-items: center; gap: 46px; }
+        .about-image { overflow: hidden; max-width: 360px; aspect-ratio: 1; margin: auto; border: 1px solid var(--line); border-radius: 28px; background: var(--surface); box-shadow: var(--shadow); }
+        .about-image img { display: block; width: 100%; height: 100%; object-fit: cover; }
+        .about-copy h2 { margin-bottom: 12px; font-size: clamp(1.8rem, 4vw, 2.5rem); }
+        .about-copy p { color: var(--muted); }
+        .about-note { padding: 14px 16px; border-right: 2px solid var(--gold); border-radius: 8px; background: var(--surface); color: var(--muted); }
+
+        .project-card { display: flex; min-height: 190px; flex-direction: column; justify-content: center; text-align: center; }
+        .project-placeholder-icon { display: grid; width: 54px; height: 54px; place-items: center; margin: 0 auto 14px; border: 1px solid var(--line); border-radius: 17px; color: var(--gold-bright); }
+        .project-placeholder-icon svg { width: 25px; height: 25px; }
+        .project-card h3 { margin-bottom: 7px; font-size: 1.15rem; }
+        .project-card p { margin-bottom: 0; color: var(--muted); font-size: .92rem; }
+
+        .gallery-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .art-card {
+            position: relative;
+            overflow: hidden;
+            min-height: 250px;
+            padding: 0;
+            border: 1px solid var(--line);
+            border-radius: 19px;
+            background: #0c1421;
+            cursor: zoom-in;
+            text-align: right;
+            transition: transform .22s ease, border-color .22s ease;
         }
 
-        .lang-card h3 {
-            margin: 0 0 12px;
-            padding-bottom: 10px;
-            color: #fff;
-            border-bottom: 2px solid var(--border-color);
-            font-size: 1.15rem;
+        .art-card:hover { transform: translateY(-4px); border-color: var(--gold); }
+        .art-card svg { display: block; width: 100%; height: 250px; }
+        .art-caption { position: absolute; right: 16px; bottom: 13px; left: 16px; color: #fff; font-size: .92rem; font-weight: 700; text-shadow: 0 2px 8px #000; }
+        .gallery-dialog { width: min(900px, calc(100% - 28px)); max-width: none; padding: 14px; border: 1px solid var(--line); border-radius: 18px; background: var(--surface); color: var(--text); }
+        .gallery-dialog::backdrop { background: rgb(0 0 0 / 82%); backdrop-filter: blur(5px); }
+        .dialog-close { display: block; margin: 0 0 10px auto; }
+        .dialog-art { overflow: hidden; border-radius: 12px; background: #0c1421; }
+        .dialog-art svg { display: block; width: 100%; height: auto; max-height: 75vh; }
+        .gallery-dialog p { margin: 12px 4px 2px; color: var(--muted); }
+
+        .contact-card { display: flex; align-items: center; gap: 17px; }
+        .contact-card .tech-icon { flex: 0 0 auto; margin: 0; }
+        .contact-card h3 { margin: 0 0 4px; font-size: 1.05rem; }
+        .contact-card p { margin: 0; color: var(--muted); font-size: .9rem; }
+        .contact-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+
+        footer { padding-block: 25px; border-top: 1px solid var(--line); color: var(--muted); text-align: center; }
+        footer p { margin: 0; font-size: .9rem; }
+        .back-to-top {
+            position: fixed;
+            z-index: 15;
+            right: 22px;
+            bottom: 22px;
+            display: grid;
+            width: 46px;
+            height: 46px;
+            place-items: center;
+            border: 1px solid var(--line);
+            border-radius: 50%;
+            background: var(--surface-raised);
+            color: var(--gold-bright);
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(8px);
+            transition: opacity .2s ease, transform .2s ease;
         }
 
-        .lang-card ul {
-            margin: 0;
-            padding-right: 20px;
-            color: var(--muted-color);
+        .back-to-top.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
+        .back-to-top svg { width: 20px; height: 20px; }
+        .reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s ease; }
+        .reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+        @keyframes orbit { to { transform: rotate(360deg); } }
+        @keyframes pulse { 50% { opacity: .46; } }
+
+        @media (max-width: 850px) {
+            .main-nav { gap: 11px; }
+            .main-nav a { font-size: .82rem; }
+            .hero { min-height: 560px; gap: 30px; }
+            .language-grid, .tech-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         }
 
-        .lang-card li + li {
-            margin-top: 6px;
-        }
-
-        footer {
-            padding: 20px 16px;
-            background-color: #0b1120;
-            border-top: 1px solid var(--border-color);
-            color: var(--muted-color);
-            text-align: center;
-        }
-
-        footer p {
-            margin: 0;
-        }
-
-        @media (max-width: 700px) {
-            .site-header {
-                flex-direction: column;
-                gap: 8px;
-                padding: 14px 16px;
+        @media (max-width: 680px) {
+            .container { width: min(100% - 32px, 520px); }
+            .header-inner { min-height: 66px; }
+            .brand { font-size: .92rem; }
+            .brand span { display: none; }
+            .menu-toggle { display: inline-grid; }
+            .header-actions { gap: 8px; }
+            .main-nav {
+                position: absolute;
+                top: calc(100% + 1px);
+                right: 0;
+                left: 0;
+                display: none;
+                align-items: stretch;
+                gap: 0;
+                padding: 8px 16px 14px;
+                border-bottom: 1px solid var(--line);
+                background: var(--page);
             }
 
-            nav {
-                justify-content: center;
-                gap: 4px 24px;
-            }
-
-            nav a {
-                min-height: 44px;
-                display: inline-flex;
-                align-items: center;
-            }
-
-            .hero-section {
-                flex-direction: column;
-                gap: 24px;
-                width: min(100% - 32px, 520px);
-                min-height: 0;
-                padding: 32px 0 40px;
-            }
-
-            .hero-image {
-                order: 0;
-                width: 100%;
-            }
-
-            .hero-image img {
-                width: min(240px, 68vw);
-            }
-
-            .hero-text {
-                order: 1;
-                width: 100%;
-                text-align: center;
-            }
-
-            .hero-text h1 {
-                font-size: clamp(1.65rem, 7vw, 2rem);
-            }
-
-            .hero-text p {
-                font-size: 1rem;
-            }
-
-            .languages-container {
-                grid-template-columns: 1fr;
-                gap: 14px;
-                width: min(100% - 32px, 520px);
-                margin-bottom: 40px;
-            }
-
-            .lang-card {
-                padding: 20px;
-            }
+            .main-nav.is-open { display: grid; }
+            .main-nav a { padding: 9px 10px; border-radius: 8px; font-size: .94rem; }
+            .main-nav a:hover { background: var(--surface); }
+            .hero { min-height: auto; grid-template-columns: 1fr; gap: 32px; padding-block: 48px 62px; text-align: center; }
+            .hero::before { top: 5%; left: 5%; width: 300px; height: 300px; }
+            .hero-copy { order: 1; }
+            .hero-visual { order: 0; width: min(72%, 300px); }
+            .hero h1 { font-size: clamp(2.2rem, 11vw, 3.2rem); }
+            .hero-description { margin-inline: auto; font-size: .98rem; }
+            .hero-actions { justify-content: center; }
+            .visual-code { right: -24px; bottom: 15px; padding: 9px 12px; font-size: .7rem; }
+            .section { padding-block: 62px; }
+            .section-heading { margin-bottom: 28px; }
+            .language-grid, .tech-grid, .gallery-grid, .contact-grid { grid-template-columns: 1fr; }
+            .about-grid { grid-template-columns: 1fr; gap: 26px; }
+            .about-image { width: min(72%, 280px); }
+            .about-copy { text-align: center; }
+            .about-note { text-align: right; }
+            .art-card, .art-card svg { min-height: 220px; height: 220px; }
         }
 
         @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
-            }
-
-            *,
-            *::before,
-            *::after {
-                transition-duration: 0.01ms !important;
-            }
+            *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+            .reveal { opacity: 1; transform: none; }
         }
     </style>
 </head>
-
 <body>
     <header class="site-header">
-        <a class="logo" href="#about">أنطونيوس ميخائيل</a>
-        <nav aria-label="التنقل الرئيسي">
-            <a href="#about">عني</a>
-            <a href="#languages">قواعد اللغات</a>
-        </nav>
+        <div class="container header-inner">
+            <a class="brand" href="#home">أنطونيوس ميخائيل <span>| Antonios Michael</span></a>
+            <nav class="main-nav" id="main-navigation" aria-label="التنقل الرئيسي">
+                <a href="#home">الرئيسية</a>
+                <a href="#languages">اللغات</a>
+                <a href="#technologies">الأدوات</a>
+                <a href="#projects">المشاريع</a>
+                <a href="#gallery">المعرض</a>
+                <a href="#about">من أنا</a>
+                <a href="#contact">التواصل</a>
+            </nav>
+            <div class="header-actions">
+                <button class="icon-button" id="theme-toggle" type="button" aria-label="تفعيل الوضع النهاري" title="تغيير المظهر">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg>
+                </button>
+                <button class="menu-toggle" id="menu-toggle" type="button" aria-label="فتح قائمة التنقل" aria-expanded="false" aria-controls="main-navigation">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+                </button>
+            </div>
+        </div>
     </header>
 
     <main>
-        <section class="hero-section" id="about" aria-labelledby="about-title">
-            <div class="hero-text">
-                <h1 id="about-title">مرحباً بك، أنا <span>أنطونيوس ميخائيل</span></h1>
-                <p>
-                    أنا طالب في الصف الثاني بالبكالوريا (الثانوية)
-                    ومبرمج شغوف بالمستقبل. أدرس حالياً علوم البرمجة
-                    وتطوير المواقع الإلكترونية.
+        <section class="container hero" id="home" aria-labelledby="hero-title">
+            <div class="hero-copy reveal">
+                <p class="eyebrow">رحلة تعلّم وإبداع</p>
+                <h1 id="hero-title">أنطونيوس <span>ميخائيل</span></h1>
+                <p class="hero-lead">أهلاً بك في عالمي البرمجي.</p>
+                <p class="hero-description">
+                    أنا طالب في الصف الثاني بالبكالوريا (الثانوية) ومبرمج شغوف بالمستقبل.
+                    أدرس حالياً علوم البرمجة وتطوير المواقع الإلكترونية، وأشارك هنا ما أتعلمه
+                    في رحلتي التقنية.
                 </p>
-                <p>
-                    هذا الموقع هو مساحتي الخاصة للتدرب وتطبيق لغات
-                    البرمجة التي أتعلمها، ومشاركة القواعد الأساسية
-                    للمطورين المبتدئين مثلي.
-                </p>
+                <div class="hero-actions">
+                    <a class="button button-primary" href="#projects">اكتشف مشاريعي <span aria-hidden="true">←</span></a>
+                    <a class="button" href="#languages">تعرّف على مهاراتي</a>
+                    <a class="button" href="#contact">تواصل معي</a>
+                </div>
             </div>
-            <div class="hero-image">
-                <img src="antoneos.png" alt="صورة أنطونيوس ميخائيل">
+            <div class="hero-visual reveal">
+                <div class="hero-photo-frame">
+                    <img src="antoneos.png" alt="الصورة المضافة في الموقع لأنطونيوس ميخائيل" fetchpriority="high">
+                </div>
+                <div class="visual-code" aria-hidden="true">
+                    <span class="code-symbol">&lt;code&gt;</span><br>
+                    learn();<br>
+                    build();<br>
+                    <span class="code-symbol">&lt;/code&gt;</span>
+                </div>
             </div>
         </section>
 
-        <section id="languages" aria-labelledby="languages-title">
-            <h2 class="section-title" id="languages-title">ملخص قواعد لغات البرمجة 🧠</h2>
-            <div class="languages-container">
-                <article class="lang-card">
-                    <h3>HTML5 (هيكل الموقع)</h3>
-                    <ul>
-                        <li>تعتمد على الأوسمة (Tags) مثل div و p.</li>
-                        <li>لكل وسم فتح وسم إغلاق في أغلب الحالات.</li>
-                        <li>تساعد الأوسمة الدلالية في تنظيم محتوى الموقع.</li>
-                    </ul>
-                </article>
+        <section class="section section-alt" id="languages" aria-labelledby="languages-title">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <p class="eyebrow">أساسيات البرمجة</p>
+                    <h2 id="languages-title">اللغات التي أتعلمها</h2>
+                    <p>ملخصات مبسطة للغات الموجودة في موقعي، مع مساحة لتحديد مستوى مهارتي بنفسي.</p>
+                </div>
+                <label class="search-wrap reveal">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg>
+                    <input class="search-input" id="language-search" type="search" placeholder="ابحث عن لغة أو مفهوم..." aria-label="ابحث عن لغة أو مفهوم">
+                </label>
+                <div class="language-grid" id="language-grid">
+                    <article class="language-card reveal" data-search="html html5 هيكل صفحات مواقع ويب وسوم tags semantic">
+                        <div class="card-top">
+                            <span class="language-mark" style="--mark-color:#e87942" aria-hidden="true">5</span>
+                            <h3>HTML5 <span class="subtitle">هيكل صفحات الويب</span></h3>
+                        </div>
+                        <p>لغة ترميز تصف بنية محتوى صفحة الويب باستخدام عناصر ووسوم واضحة.</p>
+                        <p class="card-label">الاستخدامات والمميزات</p>
+                        <ul class="compact-list"><li>هيكلة الصفحات</li><li>عناصر دلالية</li><li>تنظيم المحتوى</li></ul>
+                        <div class="skill-field">
+                            <label for="skill-html">مستوى المهارة — أضفه أو عدّله بنفسك</label>
+                            <input class="skill-input" id="skill-html" data-skill="html" type="text" placeholder="اكتب مستواك هنا">
+                        </div>
+                        <details>
+                            <summary>شرح HTML والمثال البرمجي</summary>
+                            <div class="lesson-content">
+                                <h4>ما هي؟ ولماذا نستخدمها؟</h4>
+                                <p>HTML هي لغة توصيف النص التشعبي. تحدد معنى أجزاء الصفحة وترتيبها، وهي الأساس الذي تُبنى عليه صفحات الويب.</p>
+                                <h4>أين تُستخدم؟</h4>
+                                <p>في صفحات ومواقع الويب، لوضع العناوين والفقرات والصور والروابط والنماذج.</p>
+                                <h4>مثال وشرحه</h4>
+                                <pre><code>&lt;h1&gt;مرحباً بالعالم&lt;/h1&gt;</code></pre>
+                                <p>ينشئ الوسم <bdi>h1</bdi> عنواناً رئيسياً. HTML تصف المحتوى، بينما CSS تنسّق مظهره وJavaScript تضيف التفاعل.</p>
+                            </div>
+                        </details>
+                    </article>
 
-                <article class="lang-card">
-                    <h3>CSS3 (التصميم والتنسيق)</h3>
-                    <ul>
-                        <li>تستخدم المحددات لتغيير الألوان والخطوط.</li>
-                        <li>تعتمد على Flexbox و Grid لتوزيع العناصر.</li>
-                        <li>تستخدم Media Queries لتناسب شاشات الموبايل.</li>
-                    </ul>
-                </article>
+                    <article class="language-card reveal" data-search="css css3 تصميم تنسيق ألوان خطوط flexbox grid responsive">
+                        <div class="card-top">
+                            <span class="language-mark" style="--mark-color:#5599e8" aria-hidden="true">3</span>
+                            <h3>CSS3 <span class="subtitle">التصميم والتنسيق</span></h3>
+                        </div>
+                        <p>لغة تنسيق تتحكم في ألوان العناصر وتخطيطها وخطوطها واستجابتها للشاشات.</p>
+                        <p class="card-label">الاستخدامات والمميزات</p>
+                        <ul class="compact-list"><li>التصميم</li><li>Flexbox وGrid</li><li>تجاوب الشاشات</li></ul>
+                        <div class="skill-field">
+                            <label for="skill-css">مستوى المهارة — أضفه أو عدّله بنفسك</label>
+                            <input class="skill-input" id="skill-css" data-skill="css" type="text" placeholder="اكتب مستواك هنا">
+                        </div>
+                        <details>
+                            <summary>شرح CSS والمثال البرمجي</summary>
+                            <div class="lesson-content">
+                                <h4>ما هي؟ ولماذا نستخدمها؟</h4>
+                                <p>CSS هي أوراق الأنماط المتتالية. تفصل شكل الصفحة عن بنيتها، مما يجعل تعديل التصميم وإعادة استخدامه أسهل.</p>
+                                <h4>أين تُستخدم؟</h4>
+                                <p>لتنسيق صفحات الويب، وبناء التخطيطات المتجاوبة باستخدام Grid وFlexbox.</p>
+                                <h4>مثال وشرحه</h4>
+                                <pre><code>p { color: gold; }</code></pre>
+                                <p>يختار المحدد <bdi>p</bdi> الفقرات ويجعل لون نصها ذهبياً. بخلاف HTML، تحدد CSS طريقة العرض لا بنية المحتوى.</p>
+                            </div>
+                        </details>
+                    </article>
 
-                <article class="lang-card">
-                    <h3>JavaScript (التفاعل والمنطق)</h3>
-                    <ul>
-                        <li>تخزن البيانات باستخدام المتغيرات مثل let و const.</li>
-                        <li>تتحكم في عناصر الصفحة عبر DOM.</li>
-                        <li>تتعامل مع الأحداث مثل الضغط على الأزرار.</li>
-                    </ul>
+                    <article class="language-card reveal" data-search="javascript js جافاسكريبت تفاعل منطق dom متغيرات أحداث">
+                        <div class="card-top">
+                            <span class="language-mark" style="--mark-color:#e9c94e" aria-hidden="true">JS</span>
+                            <h3>JavaScript <span class="subtitle">التفاعل والمنطق</span></h3>
+                        </div>
+                        <p>لغة برمجة تضيف السلوك والتفاعل إلى صفحات الويب وتتعامل مع عناصر الصفحة.</p>
+                        <p class="card-label">الاستخدامات والمميزات</p>
+                        <ul class="compact-list"><li>تفاعل الواجهات</li><li>DOM</li><li>الأحداث والمنطق</li></ul>
+                        <div class="skill-field">
+                            <label for="skill-javascript">مستوى المهارة — أضفه أو عدّله بنفسك</label>
+                            <input class="skill-input" id="skill-javascript" data-skill="javascript" type="text" placeholder="اكتب مستواك هنا">
+                        </div>
+                        <details>
+                            <summary>شرح JavaScript والمثال البرمجي</summary>
+                            <div class="lesson-content">
+                                <h4>ما هي؟ ولماذا نستخدمها؟</h4>
+                                <p>JavaScript لغة برمجة تُستخدم لإضافة المنطق والتفاعل، وتعمل في المتصفحات إلى جانب HTML وCSS.</p>
+                                <h4>أين تُستخدم؟</h4>
+                                <p>في تفاعلات المواقع وتحديث محتوى الصفحة ومعالجة أحداث المستخدم.</p>
+                                <h4>مثال وشرحه</h4>
+                                <pre><code>const name = "Antonios";
+console.log(`Hello, ${name}!`);</code></pre>
+                                <p>يحفظ <bdi>const</bdi> الاسم في متغير ثابت، ثم تعرض <bdi>console.log</bdi> رسالة الترحيب. على عكس CSS، تستطيع JavaScript تنفيذ منطق والاستجابة للأحداث.</p>
+                            </div>
+                        </details>
+                    </article>
+                    <p class="empty-state" id="no-results" hidden>لا توجد نتائج مطابقة. جرّب كلمة بحث أخرى.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="technologies" aria-labelledby="technologies-title">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <p class="eyebrow">ما يشغّل هذا الموقع</p>
+                    <h2 id="technologies-title">الأدوات والتقنيات</h2>
+                    <p>التقنيات المعروفة والمستخدمة فعلياً في ملفات الموقع الحالية.</p>
+                </div>
+                <div class="tech-grid">
+                    <article class="tech-card reveal">
+                        <span class="tech-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m8 8-4 4 4 4m8-8 4 4-4 4m-3-11-2 14"></path></svg></span>
+                        <h3>HTML</h3><p>بنية الصفحة ومحتواها الدلالي، بما في ذلك الأقسام وعناصر التنقل والتعليم.</p>
+                    </article>
+                    <article class="tech-card reveal">
+                        <span class="tech-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 3.8 6l1.3 11L12 21l6.9-4 1.3-11L12 3Z"></path><path d="M8 8h8M8 12h6m-6 4h4"></path></svg></span>
+                        <h3>CSS</h3><p>التصميم المتجاوب، التخطيطات، الألوان، الحركة، ودعم الوضعين الليلي والنهاري.</p>
+                    </article>
+                    <article class="tech-card reveal">
+                        <span class="tech-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m8 8-4 4 4 4m8-8 4 4-4 4m-3-11-2 14"></path></svg></span>
+                        <h3>JavaScript</h3><p>التفاعلات مثل البحث، حفظ تفضيلات المظهر والمهارات، والقائمة ومعرض الصور.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt" id="projects" aria-labelledby="projects-title">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <p class="eyebrow">أعمالي</p>
+                    <h2 id="projects-title">المشاريع</h2>
+                    <p>مساحة لعرض أعمالي وروابطها عند إضافتها.</p>
+                </div>
+                <article class="project-card reveal">
+                    <span class="project-placeholder-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="m7 9 2 2-2 2m4 0h4"></path></svg></span>
+                    <h3>لا توجد مشاريع مضافة بعد</h3>
+                    <p>ستظهر هنا المشاريع الموجودة وروابطها عند إضافتها إلى الموقع.</p>
                 </article>
+            </div>
+        </section>
+
+        <section class="section" id="gallery" aria-labelledby="gallery-title">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <p class="eyebrow">فنّ التقنية</p>
+                    <h2 id="gallery-title">معرض بصري</h2>
+                    <p>رسومات تقنية أصلية مضمّنة في الصفحة، من دون صور خارجية أو روابط غير موثّقة. اضغط للتكبير.</p>
+                </div>
+                <div class="gallery-grid">
+                    <button class="art-card reveal" type="button" data-caption="شيفرة وإضاءة ذهبية" aria-label="تكبير رسم الشيفرة والإضاءة الذهبية">
+                        <svg viewBox="0 0 600 360" role="img" aria-label="رسم تجريدي لشيفرة بإضاءة ذهبية" xmlns="http://www.w3.org/2000/svg">
+                            <defs><linearGradient id="gold-bg" x2="1" y2="1"><stop stop-color="#13213a"/><stop offset="1" stop-color="#080b12"/></linearGradient><radialGradient id="gold-glow"><stop stop-color="#d7b56d" stop-opacity=".45"/><stop offset="1" stop-color="#d7b56d" stop-opacity="0"/></radialGradient></defs>
+                            <rect width="600" height="360" fill="url(#gold-bg)"/><circle cx="440" cy="85" r="230" fill="url(#gold-glow)"/>
+                            <g fill="none" stroke="#d7b56d" stroke-opacity=".3"><path d="M0 300h600M0 320h600M390 0v360M420 0v360M450 0v360"/><circle cx="430" cy="170" r="115"/><circle cx="430" cy="170" r="80"/></g>
+                            <g font-family="monospace" font-size="21"><text x="54" y="92" fill="#f3d895">&lt;section&gt;</text><text x="82" y="137" fill="#9cc8ff">const future =</text><text x="105" y="172" fill="#f3d895">"in progress";</text><text x="82" y="224" fill="#86c8ac">build.withCuriosity();</text><text x="54" y="270" fill="#f3d895">&lt;/section&gt;</text></g>
+                            <g fill="#f1d795"><circle cx="475" cy="106" r="4"><animate attributeName="opacity" values="1;.25;1" dur="3s" repeatCount="indefinite"/></circle><circle cx="354" cy="246" r="3"/><circle cx="530" cy="211" r="2"/></g>
+                        </svg>
+                        <span class="art-caption">شيفرة وإضاءة ذهبية</span>
+                    </button>
+                    <button class="art-card reveal" type="button" data-caption="دوائر إلكترونية ومسارات" aria-label="تكبير رسم الدوائر الإلكترونية">
+                        <svg viewBox="0 0 600 360" role="img" aria-label="رسم تجريدي لمسارات ودوائر إلكترونية" xmlns="http://www.w3.org/2000/svg">
+                            <defs><linearGradient id="circuit-bg" x2="1"><stop stop-color="#09101c"/><stop offset=".55" stop-color="#10284b"/><stop offset="1" stop-color="#0b1019"/></linearGradient><radialGradient id="circuit-glow"><stop stop-color="#4f9bff" stop-opacity=".24"/><stop offset="1" stop-color="#4f9bff" stop-opacity="0"/></radialGradient></defs>
+                            <rect width="600" height="360" fill="url(#circuit-bg)"/><circle cx="310" cy="178" r="220" fill="url(#circuit-glow)"/>
+                            <g fill="none" stroke="#5ca5ff" stroke-width="2" stroke-opacity=".75"><path d="M300 180h-94v-58h-62m156 58h95v-90h70m-229 90H125v76h-70m245-76h85v76h80m-165 0v51h-75m75-51v-75"/><circle cx="300" cy="180" r="70"/><circle cx="300" cy="180" r="48"/></g>
+                            <g fill="#f0d389"><circle cx="144" cy="122" r="5"/><circle cx="527" cy="90" r="5"/><circle cx="55" cy="256" r="5"/><circle cx="470" cy="256" r="5"/><circle cx="225" cy="309" r="5"/></g>
+                            <text x="260" y="188" fill="#e8f2ff" font-family="monospace" font-size="22">&lt;/&gt;</text>
+                        </svg>
+                        <span class="art-caption">دوائر إلكترونية ومسارات</span>
+                    </button>
+                    <button class="art-card reveal" type="button" data-caption="شبكة من الأفكار والذكاء الاصطناعي" aria-label="تكبير رسم الشبكة التقنية">
+                        <svg viewBox="0 0 600 360" role="img" aria-label="رسم تجريدي لشبكة عقد مترابطة" xmlns="http://www.w3.org/2000/svg">
+                            <defs><linearGradient id="network-bg" y2="1"><stop stop-color="#16152a"/><stop offset="1" stop-color="#090c14"/></linearGradient><radialGradient id="network-glow"><stop stop-color="#99733e" stop-opacity=".3"/><stop offset="1" stop-color="#99733e" stop-opacity="0"/></radialGradient></defs>
+                            <rect width="600" height="360" fill="url(#network-bg)"/><circle cx="300" cy="175" r="230" fill="url(#network-glow)"/>
+                            <g stroke="#c6a960" stroke-width="1.5" stroke-opacity=".55"><path d="m95 90 125 70 115-75 145 82M95 90l80 180 130-110 118 105 57-188M220 160l-45 110 160-35 22-150m-147 75 225 17M175 270l-80 28 325-3 100-96"/></g>
+                            <g fill="#f1d795"><circle cx="95" cy="90" r="6"/><circle cx="220" cy="160" r="7"/><circle cx="335" cy="85" r="6"/><circle cx="480" cy="167" r="8"/><circle cx="175" cy="270" r="6"/><circle cx="335" cy="235" r="7"/><circle cx="453" cy="340" r="6"/><circle cx="510" cy="152" r="4"/></g>
+                            <g fill="#8fc8ff"><circle cx="300" cy="212" r="3"/><circle cx="395" cy="105" r="3"/><circle cx="250" cy="292" r="3"/></g>
+                        </svg>
+                        <span class="art-caption">شبكة من الأفكار والذكاء الاصطناعي</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt" id="about" aria-labelledby="about-title">
+            <div class="container about-grid">
+                <div class="about-image reveal"><img src="antoneos.png" alt="الصورة المضافة في الموقع لأنطونيوس ميخائيل" loading="lazy"></div>
+                <div class="about-copy reveal">
+                    <p class="eyebrow">نبذة شخصية</p>
+                    <h2 id="about-title">من أنا؟</h2>
+                    <p>أنا أنطونيوس ميخائيل، طالب في الصف الثاني بالبكالوريا (الثانوية) ومبرمج شغوف بالمستقبل. أدرس علوم البرمجة وتطوير المواقع الإلكترونية، وهذا الموقع مساحة للتدرب وتطبيق لغات البرمجة التي أتعلمها ومشاركة القواعد الأساسية للمطورين المبتدئين.</p>
+                    <p class="about-note">يمكنك تعديل هذه النبذة لاحقاً لتضيف اهتماماتك وخبراتك الجديدة.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="contact" aria-labelledby="contact-title">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <p class="eyebrow">يسعدني تواصلك</p>
+                    <h2 id="contact-title">التواصل</h2>
+                    <p>لم تُضف وسائل تواصل بعد. أضف روابطك الحقيقية هنا عندما تكون جاهزة.</p>
+                </div>
+                <div class="contact-grid">
+                    <article class="contact-card reveal">
+                        <span class="tech-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a15 15 0 0 1 0 18m0-18a15 15 0 0 0 0 18"></path></svg></span>
+                        <div><h3>موقعي على الإنترنت</h3><p>مساحة لإضافة رابطك الشخصي</p></div>
+                    </article>
+                    <article class="contact-card reveal">
+                        <span class="tech-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m4 7 8 6 8-6"></path></svg></span>
+                        <div><h3>البريد الإلكتروني</h3><p>مساحة لإضافة بريدك الإلكتروني</p></div>
+                    </article>
+                </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <p>تم التطوير بكل شغف بواسطة أنطونيوس ميخائيل © 2026</p>
-    </footer>
+    <footer><div class="container"><p>تم التطوير بكل شغف بواسطة أنطونيوس ميخائيل © <span id="current-year">2026</span></p></div></footer>
+
+    <button class="back-to-top" id="back-to-top" type="button" aria-label="العودة إلى أعلى الصفحة">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m6 14 6-6 6 6"></path></svg>
+    </button>
+
+    <dialog class="gallery-dialog" id="gallery-dialog" aria-label="معاينة الصورة">
+        <button class="icon-button dialog-close" id="dialog-close" type="button" aria-label="إغلاق المعاينة">×</button>
+        <div class="dialog-art" id="dialog-art"></div>
+        <p id="dialog-caption"></p>
+    </dialog>
+
+    <script>
+        const themeToggle = document.querySelector("#theme-toggle");
+        const menuToggle = document.querySelector("#menu-toggle");
+        const mainNavigation = document.querySelector("#main-navigation");
+        const searchInput = document.querySelector("#language-search");
+        const languageCards = [...document.querySelectorAll(".language-card")];
+        const noResults = document.querySelector("#no-results");
+        const backToTop = document.querySelector("#back-to-top");
+        const galleryDialog = document.querySelector("#gallery-dialog");
+        const dialogArt = document.querySelector("#dialog-art");
+        const dialogCaption = document.querySelector("#dialog-caption");
+
+        function setTheme(theme) {
+            document.body.dataset.theme = theme;
+            themeToggle.setAttribute("aria-label", theme === "dark" ? "تفعيل الوضع النهاري" : "تفعيل الوضع الليلي");
+            try {
+                localStorage.setItem("antonios-theme", theme);
+            } catch (error) {
+                console.warn("تعذر حفظ تفضيل المظهر في هذا المتصفح.", error);
+            }
+        }
+
+        try {
+            const savedTheme = localStorage.getItem("antonios-theme");
+            if (savedTheme === "light" || savedTheme === "dark") {
+                setTheme(savedTheme);
+            }
+        } catch (error) {
+            console.warn("تعذر قراءة تفضيل المظهر من هذا المتصفح.", error);
+        }
+
+        themeToggle.addEventListener("click", () => {
+            setTheme(document.body.dataset.theme === "light" ? "dark" : "light");
+        });
+
+        menuToggle.addEventListener("click", () => {
+            const expanded = menuToggle.getAttribute("aria-expanded") === "true";
+            menuToggle.setAttribute("aria-expanded", String(!expanded));
+            menuToggle.setAttribute("aria-label", expanded ? "فتح قائمة التنقل" : "إغلاق قائمة التنقل");
+            mainNavigation.classList.toggle("is-open", !expanded);
+        });
+
+        mainNavigation.addEventListener("click", (event) => {
+            if (event.target.closest("a")) {
+                mainNavigation.classList.remove("is-open");
+                menuToggle.setAttribute("aria-expanded", "false");
+                menuToggle.setAttribute("aria-label", "فتح قائمة التنقل");
+            }
+        });
+
+        searchInput.addEventListener("input", () => {
+            const query = searchInput.value.trim().toLocaleLowerCase("ar");
+            let visibleCount = 0;
+            for (const card of languageCards) {
+                const matches = card.textContent.toLocaleLowerCase("ar").includes(query)
+                    || card.dataset.search.toLocaleLowerCase("ar").includes(query);
+                card.hidden = !matches;
+                if (matches) visibleCount += 1;
+            }
+            noResults.hidden = visibleCount > 0;
+        });
+
+        for (const input of document.querySelectorAll("[data-skill]")) {
+            const key = `antonios-skill-${input.dataset.skill}`;
+            try {
+                input.value = localStorage.getItem(key) || "";
+            } catch (error) {
+                console.warn(`تعذر قراءة مستوى المهارة ${input.dataset.skill}.`, error);
+            }
+            input.addEventListener("input", () => {
+                try {
+                    localStorage.setItem(key, input.value);
+                } catch (error) {
+                    console.warn(`تعذر حفظ مستوى المهارة ${input.dataset.skill}.`, error);
+                }
+            });
+        }
+
+        const revealItems = document.querySelectorAll(".reveal");
+        if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                for (const entry of entries) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("is-visible");
+                        observer.unobserve(entry.target);
+                    }
+                }
+            }, { threshold: 0.12 });
+            revealItems.forEach((item) => revealObserver.observe(item));
+        } else {
+            revealItems.forEach((item) => item.classList.add("is-visible"));
+        }
+
+        window.addEventListener("scroll", () => {
+            backToTop.classList.toggle("visible", window.scrollY > 420);
+        }, { passive: true });
+
+        backToTop.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        document.querySelector("#current-year").textContent = String(new Date().getFullYear());
+
+        for (const artButton of document.querySelectorAll(".art-card")) {
+            artButton.addEventListener("click", () => {
+                const svg = artButton.querySelector("svg");
+                dialogArt.replaceChildren(svg.cloneNode(true));
+                dialogCaption.textContent = artButton.dataset.caption;
+                galleryDialog.showModal();
+            });
+        }
+
+        document.querySelector("#dialog-close").addEventListener("click", () => galleryDialog.close());
+        galleryDialog.addEventListener("click", (event) => {
+            if (event.target === galleryDialog) galleryDialog.close();
+        });
+    </script>
 </body>
 </html>
