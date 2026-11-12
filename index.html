@@ -3,11 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#090b12">
-    <meta name="description" content="الموقع الشخصي لأنطونيوس ميخائيل، طالب ومبرمج شغوف بتطوير المواقع والتكنولوجيا.">
-    <title>أنطونيوس ميخائيل | عالمي البرمجي</title>
+    <meta name="theme-color" content="#f7f9fc">
+    <meta name="description" content="منصة أنطونيوس ميخائيل لتعلّم البرمجة عبر الدروس والتحديات والمستويات.">
+    <title>أكاديمية أنطونيوس | منصة تعلّم البرمجة</title>
     <style>
         :root {
+            color-scheme: light;
+            --page: #f7f9fc;
+            --page-soft: #eef2f8;
+            --surface: #ffffff;
+            --surface-raised: #f7f9ff;
+            --text: #1d2939;
+            --muted: #667085;
+            --gold: #dd3348;
+            --gold-bright: #c6283c;
+            --success: #159466;
+            --success-bright: #08774f;
+            --blue: #e7efff;
+            --line: rgb(71 84 103 / 15%);
+            --shadow: 0 24px 70px rgb(42 56 85 / 12%);
+            --radius: 22px;
+        }
+
+        body[data-theme="dark"] {
             color-scheme: dark;
             --page: #090b12;
             --page-soft: #0e1421;
@@ -15,27 +33,13 @@
             --surface-raised: #151e2f;
             --text: #f5f2ea;
             --muted: #a4adbd;
-            --gold: #d7b56d;
-            --gold-bright: #f1d795;
+            --gold: #ed4957;
+            --gold-bright: #ff737d;
+            --success: #39c887;
+            --success-bright: #70e4ad;
             --blue: #16315b;
-            --line: rgb(215 181 109 / 20%);
+            --line: rgb(237 73 87 / 20%);
             --shadow: 0 24px 70px rgb(0 0 0 / 28%);
-            --radius: 22px;
-        }
-
-        body[data-theme="light"] {
-            color-scheme: light;
-            --page: #f5f3ed;
-            --page-soft: #edeae2;
-            --surface: #fffefa;
-            --surface-raised: #f5f1e7;
-            --text: #1d2430;
-            --muted: #586273;
-            --gold: #9a7025;
-            --gold-bright: #765317;
-            --blue: #d9e5f5;
-            --line: rgb(91 73 37 / 19%);
-            --shadow: 0 24px 70px rgb(40 35 25 / 10%);
         }
 
         * { box-sizing: border-box; }
@@ -47,8 +51,8 @@
             margin: 0;
             overflow-x: hidden;
             background:
-                radial-gradient(ellipse at 12% 9%, rgb(22 49 91 / 32%), transparent 32rem),
-                radial-gradient(ellipse at 92% 35%, rgb(153 113 40 / 9%), transparent 30rem),
+                radial-gradient(ellipse at 12% 9%, rgb(76 129 230 / 9%), transparent 32rem),
+                radial-gradient(ellipse at 92% 35%, rgb(237 73 87 / 6%), transparent 30rem),
                 var(--page);
             color: var(--text);
             font-family: "Segoe UI", Tahoma, Arial, sans-serif;
@@ -131,9 +135,9 @@
             left: 28%;
             width: 440px;
             height: 440px;
-            border: 1px solid rgb(215 181 109 / 9%);
+            border: 1px solid rgb(237 73 87 / 9%);
             border-radius: 50%;
-            box-shadow: 0 0 90px rgb(215 181 109 / 7%), inset 0 0 80px rgb(22 49 91 / 18%);
+            box-shadow: 0 0 90px rgb(237 73 87 / 7%), inset 0 0 80px rgb(22 49 91 / 18%);
             content: "";
             animation: orbit 28s linear infinite;
         }
@@ -181,8 +185,8 @@
         }
 
         .button:hover { transform: translateY(-3px); border-color: var(--gold); }
-        .button-primary { border-color: transparent; background: linear-gradient(120deg, #c59b4f, #f0d894); color: #14120e; }
-        .button-primary:hover { background: linear-gradient(120deg, #d6ad61, #f8e6ae); }
+        .button-primary { border-color: transparent; background: linear-gradient(120deg, #d92e43, #ff6d68); color: #fff; }
+        .button-primary:hover { background: linear-gradient(120deg, #e84256, #ff8378); }
         .button svg { width: 17px; height: 17px; }
 
         .hero-visual { position: relative; width: min(100%, 430px); justify-self: center; }
@@ -190,9 +194,9 @@
             position: relative;
             overflow: hidden;
             aspect-ratio: 4 / 4.55;
-            border: 1px solid rgb(215 181 109 / 58%);
+            border: 1px solid rgb(237 73 87 / 58%);
             border-radius: 48% 48% 24px 24px;
-            background: linear-gradient(145deg, #15233a, #080a10 72%);
+            background: linear-gradient(145deg, #eaf1ff, #ffffff 72%);
             box-shadow: var(--shadow), 0 0 55px rgb(38 89 148 / 20%);
         }
 
@@ -255,7 +259,7 @@
 
         .language-card:hover, .tech-card:hover, .project-card:hover, .contact-card:hover {
             transform: translateY(-5px);
-            border-color: rgb(215 181 109 / 60%);
+            border-color: rgb(237 73 87 / 60%);
             box-shadow: var(--shadow);
         }
 
@@ -309,11 +313,11 @@
             font: .81rem/1.65 Consolas, "Courier New", monospace;
         }
 
-        body[data-theme="light"] pre { background: #1a2433; color: #eff5ff; }
+        body[data-theme="dark"] pre { background: #080d16; color: #d8e6f4; }
         .empty-state { grid-column: 1 / -1; margin: 0; padding: 28px; border: 1px dashed var(--line); border-radius: 16px; color: var(--muted); text-align: center; }
 
         .tech-card { padding: 20px; }
-        .tech-icon { display: grid; width: 44px; height: 44px; place-items: center; margin-bottom: 14px; border-radius: 14px; background: rgb(215 181 109 / 11%); color: var(--gold-bright); }
+        .tech-icon { display: grid; width: 44px; height: 44px; place-items: center; margin-bottom: 14px; border-radius: 14px; background: color-mix(in srgb, var(--gold) 12%, var(--surface)); color: var(--gold-bright); }
         .tech-icon svg { width: 22px; height: 22px; }
 
         .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; align-items: center; gap: 46px; }
@@ -352,6 +356,72 @@
         .dialog-art { overflow: hidden; border-radius: 12px; background: #0c1421; }
         .dialog-art svg { display: block; width: 100%; height: auto; max-height: 75vh; }
         .gallery-dialog p { margin: 12px 4px 2px; color: var(--muted); }
+
+        .path-progress, .level-map, .classroom-layout, .quiz-layout { display: grid; gap: 18px; }
+        .path-progress { grid-template-columns: 1fr auto; align-items: center; padding: 20px 24px; border: 1px solid var(--line); border-radius: 18px; background: var(--surface); }
+        .progress-track { overflow: hidden; height: 10px; grid-column: 1 / -1; border-radius: 999px; background: var(--page-soft); }
+        .progress-track span { display: block; width: 0; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--success), var(--success-bright)); transition: width .3s ease; }
+        .progress-copy { margin: 0; color: var(--muted); }
+        .progress-copy strong { color: var(--success-bright); }
+        .level-map { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 20px; }
+        .level-card { position: relative; min-height: 210px; padding: 22px; border: 1px solid var(--line); border-radius: 20px; background: linear-gradient(145deg, color-mix(in srgb, var(--level-color) 7%, var(--surface)), var(--surface)); text-align: right; cursor: pointer; transition: transform .2s ease, border-color .2s ease; }
+        .level-card::after { position: absolute; top: 21px; left: 22px; font-size: 1.8rem; content: ""; }
+        .level-card:hover:not(:disabled), .level-card.is-active { transform: translateY(-4px); border-color: var(--level-color); }
+        .level-card:disabled { cursor: not-allowed; opacity: .58; }
+        .level-card.is-complete { border-color: var(--success); }
+        .level-card:nth-child(1) { --level-color: #ff6977; }
+        .level-card:nth-child(2) { --level-color: #68aaff; }
+        .level-card:nth-child(3) { --level-color: #c28bff; }
+        .level-card:nth-child(4) { --level-color: #55d69a; }
+        .level-card:nth-child(1)::after { content: "🧩"; }
+        .level-card:nth-child(2)::after { content: "🎨"; }
+        .level-card:nth-child(3)::after { content: "⚡"; }
+        .level-card:nth-child(4)::after { content: "🚀"; }
+        .level-number { display: grid; width: 44px; height: 44px; place-items: center; margin-bottom: 14px; border-radius: 14px; background: color-mix(in srgb, var(--level-color) 15%, var(--surface)); color: var(--level-color); font-weight: 800; }
+        .level-card.is-complete .level-number { background: color-mix(in srgb, var(--success) 18%, var(--surface)); color: var(--success-bright); }
+        .level-card h3 { margin-bottom: 7px; font-size: 1.05rem; }
+        .level-card p { margin: 0; color: var(--muted); font-size: .88rem; }
+        .level-status { display: block; margin-top: 14px; color: var(--level-color); font-size: .8rem; font-weight: 700; }
+        .classroom-layout { grid-template-columns: 1.1fr .9fr; align-items: start; }
+        .video-panel, .lesson-notes, .quiz-panel, .upload-panel, .celebration-panel { padding: 22px; border: 1px solid var(--line); border-radius: 20px; background: var(--surface); }
+        .video-frame { display: grid; min-height: 330px; place-items: center; overflow: hidden; border-radius: 15px; background: #070a11; color: #fff; }
+        .video-frame iframe { width: 100%; height: 330px; border: 0; }
+        .video-placeholder { max-width: 430px; padding: 25px; color: #c4cede; text-align: center; }
+        .video-placeholder strong { display: block; margin-bottom: 8px; color: #fff; font-size: 1.1rem; }
+        .video-link-form { display: grid; grid-template-columns: 1fr auto; gap: 9px; margin-top: 14px; }
+        .text-input, .long-text, .video-link-form input { width: 100%; min-height: 46px; padding: 10px 13px; border: 1px solid var(--line); border-radius: 11px; background: var(--page-soft); color: var(--text); }
+        .long-text { min-height: 130px; resize: vertical; }
+        .lesson-notes h3, .quiz-panel h3 { margin-bottom: 8px; }
+        .lesson-notes p, .small-note { color: var(--muted); font-size: .92rem; }
+        .lesson-notes pre { min-height: 90px; }
+        .lesson-tools { display: flex; flex-wrap: wrap; gap: 9px; }
+        .button-small { min-height: 40px; padding: 7px 14px; font-size: .88rem; }
+        .button-success { border-color: transparent; background: var(--success); color: #06160f; }
+        .message-line { min-height: 1.6em; margin: 8px 0 0; color: var(--success-bright); font-size: .88rem; }
+        .message-line.is-error { color: var(--gold-bright); }
+        .quiz-layout { grid-template-columns: minmax(0, 1fr) 300px; align-items: start; }
+        .quiz-question { margin: 0; padding: 17px 0; border: 0; border-bottom: 1px solid var(--line); }
+        .quiz-question legend { margin-bottom: 9px; font-weight: 700; }
+        .quiz-option { display: flex; align-items: center; gap: 9px; padding: 6px 0; color: var(--muted); cursor: pointer; }
+        .quiz-option input { accent-color: var(--gold); }
+        .quiz-side { display: grid; gap: 14px; }
+        .celebration-panel { border-color: var(--success); background: linear-gradient(145deg, color-mix(in srgb, var(--success) 12%, var(--surface)), var(--surface)); }
+        .celebration-panel h3 { color: var(--success-bright); }
+        .celebration-panel ol { padding-inline-start: 22px; }
+        .gift-list { display: flex; flex-wrap: wrap; gap: 9px; }
+        .upload-panel { display: grid; gap: 14px; margin-bottom: 20px; }
+        .upload-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+        .upload-controls input[type="file"] { max-width: 100%; color: var(--muted); }
+        .gallery-grid { align-items: start; }
+        .photo-card { min-width: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 18px; background: var(--surface); }
+        .photo-card img { display: block; width: 100%; height: 240px; object-fit: cover; background: var(--page-soft); }
+        .photo-card-body { display: grid; gap: 10px; padding: 14px; }
+        .photo-card-body h3 { margin: 0; font-size: 1rem; overflow-wrap: anywhere; }
+        .photo-card-body .long-text { min-height: 110px; }
+        .photo-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+        .owner-name-field { display: grid; gap: 6px; }
+        .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; clip-path: inset(50%); }
+        .gallery-pagination { display: flex; justify-content: center; gap: 10px; margin-top: 20px; }
 
         .contact-card { display: flex; align-items: center; gap: 17px; }
         .contact-card .tech-icon { flex: 0 0 auto; margin: 0; }
@@ -394,7 +464,7 @@
             .main-nav { gap: 11px; }
             .main-nav a { font-size: .82rem; }
             .hero { min-height: 560px; gap: 30px; }
-            .language-grid, .tech-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .language-grid, .tech-grid, .level-map { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         }
 
         @media (max-width: 680px) {
@@ -430,12 +500,15 @@
             .visual-code { right: -24px; bottom: 15px; padding: 9px 12px; font-size: .7rem; }
             .section { padding-block: 62px; }
             .section-heading { margin-bottom: 28px; }
-            .language-grid, .tech-grid, .gallery-grid, .contact-grid { grid-template-columns: 1fr; }
+            .language-grid, .tech-grid, .gallery-grid, .contact-grid, .level-map, .classroom-layout, .quiz-layout { grid-template-columns: 1fr; }
             .about-grid { grid-template-columns: 1fr; gap: 26px; }
             .about-image { width: min(72%, 280px); }
             .about-copy { text-align: center; }
             .about-note { text-align: right; }
             .art-card, .art-card svg { min-height: 220px; height: 220px; }
+            .path-progress { padding: 16px; }
+            .video-frame, .video-frame iframe { min-height: 230px; height: 230px; }
+            .video-link-form { grid-template-columns: 1fr; }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -444,21 +517,21 @@
         }
     </style>
 </head>
-<body>
+<body data-theme="light">
     <header class="site-header">
         <div class="container header-inner">
-            <a class="brand" href="#home">أنطونيوس ميخائيل <span>| Antonios Michael</span></a>
+            <a class="brand" href="#home">أكاديمية أنطونيوس <span>| تعلّم البرمجة بالتحديات</span></a>
             <nav class="main-nav" id="main-navigation" aria-label="التنقل الرئيسي">
                 <a href="#home">الرئيسية</a>
-                <a href="#languages">اللغات</a>
-                <a href="#technologies">الأدوات</a>
-                <a href="#projects">المشاريع</a>
+                <a href="#learning-path">مسار التعلّم</a>
+                <a href="#classroom">الدروس</a>
+                <a href="#challenge">التحديات</a>
                 <a href="#gallery">المعرض</a>
                 <a href="#about">من أنا</a>
                 <a href="#contact">التواصل</a>
             </nav>
             <div class="header-actions">
-                <button class="icon-button" id="theme-toggle" type="button" aria-label="تفعيل الوضع النهاري" title="تغيير المظهر">
+                <button class="icon-button" id="theme-toggle" type="button" aria-label="تفعيل الوضع الليلي" title="تغيير المظهر">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg>
                 </button>
                 <button class="menu-toggle" id="menu-toggle" type="button" aria-label="فتح قائمة التنقل" aria-expanded="false" aria-controls="main-navigation">
@@ -471,29 +544,139 @@
     <main>
         <section class="container hero" id="home" aria-labelledby="hero-title">
             <div class="hero-copy reveal">
-                <p class="eyebrow">رحلة تعلّم وإبداع</p>
-                <h1 id="hero-title">أنطونيوس <span>ميخائيل</span></h1>
-                <p class="hero-lead">أهلاً بك في عالمي البرمجي.</p>
+                <p class="eyebrow">من أول سطر كود إلى مشروعك الأول</p>
+                <h1 id="hero-title">تعلّم البرمجة <span>بالتحديات</span></h1>
+                <p class="hero-lead">رحلة ممتعة، مستوى بعد مستوى.</p>
                 <p class="hero-description">
-                    أنا طالب في الصف الثاني بالبكالوريا (الثانوية) ومبرمج شغوف بالمستقبل.
-                    أدرس حالياً علوم البرمجة وتطوير المواقع الإلكترونية، وأشارك هنا ما أتعلمه
-                    في رحلتي التقنية.
+                    منصة تعليمية عربية تفاعلية تقودك من أساسيات التفكير البرمجي إلى بناء مشروعك الكامل.
+                    تعلّم بالشرح والتطبيق، اجتز التحديات، واجمع شهاداتك وهداياك البرمجية.
                 </p>
                 <div class="hero-actions">
-                    <a class="button button-primary" href="#projects">اكتشف مشاريعي <span aria-hidden="true">←</span></a>
-                    <a class="button" href="#languages">تعرّف على مهاراتي</a>
+                    <a class="button button-primary" href="#learning-path">ابدأ أول تحدٍ <span aria-hidden="true">←</span></a>
+                    <a class="button" href="#gallery">معرض الصور</a>
                     <a class="button" href="#contact">تواصل معي</a>
                 </div>
             </div>
             <div class="hero-visual reveal">
                 <div class="hero-photo-frame">
-                    <img src="antoneos.png" alt="الصورة المضافة في الموقع لأنطونيوس ميخائيل" fetchpriority="high">
+                    <img src="antoneos.png" alt="الصورة الأصلية لأنطونيوس في مساحة عمله البرمجية" fetchpriority="high">
                 </div>
                 <div class="visual-code" aria-hidden="true">
                     <span class="code-symbol">&lt;code&gt;</span><br>
                     learn();<br>
                     build();<br>
                     <span class="code-symbol">&lt;/code&gt;</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt" id="learning-path" aria-labelledby="path-title">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <p class="eyebrow">خريطتك نحو الاحتراف</p>
+                    <h2 id="path-title">مسار تعلّم البرمجة</h2>
+                    <p>أربع محطات متتابعة؛ أكمل التحدي لفتح المستوى التالي واحصل على شهادتك وهديتك.</p>
+                </div>
+                <div class="path-progress" aria-live="polite">
+                    <p class="progress-copy">تقدمك في الرحلة: <strong id="progress-label">٠ من ٤ مستويات</strong></p>
+                    <span class="progress-copy" id="progress-percent">٠٪</span>
+                    <div class="progress-track" role="progressbar" aria-label="نسبة إكمال المسار" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                        <span id="progress-bar"></span>
+                    </div>
+                </div>
+                <div class="level-map" id="level-map">
+                    <button class="level-card" type="button" data-level="0">
+                        <span class="level-number">01</span><h3>أساسيات البرمجة</h3>
+                        <p>التفكير المنطقي، المتغيرات، الشروط والخطوات الأولى.</p>
+                        <span class="level-status">متاح الآن</span>
+                    </button>
+                    <button class="level-card" type="button" data-level="1">
+                        <span class="level-number">02</span><h3>بناء صفحات الويب</h3>
+                        <p>هيكلة الصفحات بـ HTML وتنسيقها باستخدام CSS.</p>
+                        <span class="level-status">مغلق — أكمل المستوى السابق</span>
+                    </button>
+                    <button class="level-card" type="button" data-level="2">
+                        <span class="level-number">03</span><h3>البرمجة التفاعلية</h3>
+                        <p>JavaScript والأحداث والتعامل مع عناصر الصفحة.</p>
+                        <span class="level-status">مغلق — أكمل المستوى السابق</span>
+                    </button>
+                    <button class="level-card" type="button" data-level="3">
+                        <span class="level-number">04</span><h3>مشروع برمجي كامل</h3>
+                        <p>خطط، ابنِ، اختبر وانشر مشروعاً متكاملاً.</p>
+                        <span class="level-status">مغلق — أكمل المستوى السابق</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="classroom" aria-labelledby="classroom-title">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <p class="eyebrow">تعلّم خطوة بخطوة</p>
+                    <h2 id="classroom-title">الفصل التفاعلي</h2>
+                    <p id="lesson-level-title">المستوى الأول — أساسيات البرمجة</p>
+                </div>
+                <div class="classroom-layout">
+                    <article class="video-panel reveal">
+                        <h3 id="lesson-title">فكّر مثل المبرمج</h3>
+                        <div class="video-frame">
+                            <iframe id="lesson-player" title="فيديو الدرس" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen hidden></iframe>
+                            <div class="video-placeholder" id="video-placeholder">
+                                <strong>مشغل الدرس جاهز</strong>
+                                أضف رابط فيديو YouTube للدرس ليظهر هنا. ستجد أسفل المشغل ملخص الدرس والكود.
+                            </div>
+                        </div>
+                        <form class="video-link-form" id="video-link-form">
+                            <label class="sr-only" for="video-url">رابط فيديو YouTube</label>
+                            <input id="video-url" type="url" inputmode="url" placeholder="الصق رابط فيديو YouTube لهذا الدرس" aria-label="رابط فيديو YouTube">
+                            <button class="button button-primary button-small" type="submit">تحميل الفيديو</button>
+                        </form>
+                        <p class="message-line" id="video-message" aria-live="polite"></p>
+                    </article>
+                    <article class="lesson-notes reveal">
+                        <p class="card-label">ملخص الدرس والملاحظات</p>
+                        <h3 id="lesson-summary-title">حل المشكلة خطوة بخطوة</h3>
+                        <p id="lesson-summary"></p>
+                        <pre><code id="lesson-code"></code></pre>
+                        <div class="lesson-tools">
+                            <button class="button button-small" id="copy-lesson-code" type="button">نسخ الكود</button>
+                            <a class="button button-small" href="#challenge">انتقل إلى اختبار المستوى</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt" id="challenge" aria-labelledby="challenge-title">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <p class="eyebrow">طبّق ما تعلّمته</p>
+                    <h2 id="challenge-title">تحدّي نهاية المستوى</h2>
+                    <p>أجب عن الأسئلة الخمسة، واحصل على ٤ إجابات صحيحة على الأقل لاجتياز المستوى وفتح التالي.</p>
+                </div>
+                <div class="quiz-layout">
+                    <form class="quiz-panel reveal" id="quiz-form">
+                        <h3 id="quiz-level-title">اختبار المستوى الأول</h3>
+                        <div id="quiz-questions"></div>
+                        <button class="button button-primary" type="submit">تحقق من إجاباتي</button>
+                        <p class="message-line" id="quiz-message" aria-live="polite"></p>
+                    </form>
+                    <aside class="quiz-side reveal">
+                        <div class="owner-name-field">
+                            <label for="learner-name">اسمك للشهادة</label>
+                            <input class="text-input" id="learner-name" maxlength="60" autocomplete="name" placeholder="اكتب اسمك هنا">
+                        </div>
+                        <div class="celebration-panel" id="celebration-panel" hidden aria-live="polite">
+                            <h3 id="celebration-title">تهانينا!</h3>
+                            <p id="celebration-copy"></p>
+                            <ol><li>حمّل شهادة إتمام المستوى باسمك.</li><li>نزّل هديتك البرمجية واحتفظ بها.</li><li>انتقل للمستوى التالي الذي أصبح مفتوحاً.</li></ol>
+                            <div class="gift-list">
+                                <button class="button button-success button-small" id="download-certificate" type="button">تحميل الشهادة</button>
+                                <button class="button button-success button-small" id="download-gift" type="button">تحميل الهدية البرمجية</button>
+                            </div>
+                        </div>
+                        <p class="small-note">يُحفظ تقدمك واسمك على هذا الجهاز فقط. اجتز ٤ إجابات صحيحة من ٥ لفتح المستوى التالي.</p>
+                    </aside>
                 </div>
             </div>
         </section>
@@ -635,48 +818,58 @@ console.log(`Hello, ${name}!`);</code></pre>
         <section class="section" id="gallery" aria-labelledby="gallery-title">
             <div class="container">
                 <div class="section-heading reveal">
-                    <p class="eyebrow">فنّ التقنية</p>
-                    <h2 id="gallery-title">معرض بصري</h2>
-                    <p>رسومات تقنية أصلية مضمّنة في الصفحة، من دون صور خارجية أو روابط غير موثّقة. اضغط للتكبير.</p>
+                    <p class="eyebrow">مساحة صورك وقصصك</p>
+                    <h2 id="gallery-title">معرض الصور والمشاريع</h2>
+                    <p>ارفع صور الأكواد والمشاريع والفعاليات، وأضف شرحاً تفصيلياً لكل صورة. تُحفظ الملفات محلياً في هذا المتصفح.</p>
                 </div>
-                <div class="gallery-grid">
-                    <button class="art-card reveal" type="button" data-caption="شيفرة وإضاءة ذهبية" aria-label="تكبير رسم الشيفرة والإضاءة الذهبية">
-                        <svg viewBox="0 0 600 360" role="img" aria-label="رسم تجريدي لشيفرة بإضاءة ذهبية" xmlns="http://www.w3.org/2000/svg">
-                            <defs><linearGradient id="gold-bg" x2="1" y2="1"><stop stop-color="#13213a"/><stop offset="1" stop-color="#080b12"/></linearGradient><radialGradient id="gold-glow"><stop stop-color="#d7b56d" stop-opacity=".45"/><stop offset="1" stop-color="#d7b56d" stop-opacity="0"/></radialGradient></defs>
-                            <rect width="600" height="360" fill="url(#gold-bg)"/><circle cx="440" cy="85" r="230" fill="url(#gold-glow)"/>
-                            <g fill="none" stroke="#d7b56d" stroke-opacity=".3"><path d="M0 300h600M0 320h600M390 0v360M420 0v360M450 0v360"/><circle cx="430" cy="170" r="115"/><circle cx="430" cy="170" r="80"/></g>
-                            <g font-family="monospace" font-size="21"><text x="54" y="92" fill="#f3d895">&lt;section&gt;</text><text x="82" y="137" fill="#9cc8ff">const future =</text><text x="105" y="172" fill="#f3d895">"in progress";</text><text x="82" y="224" fill="#86c8ac">build.withCuriosity();</text><text x="54" y="270" fill="#f3d895">&lt;/section&gt;</text></g>
-                            <g fill="#f1d795"><circle cx="475" cy="106" r="4"><animate attributeName="opacity" values="1;.25;1" dur="3s" repeatCount="indefinite"/></circle><circle cx="354" cy="246" r="3"/><circle cx="530" cy="211" r="2"/></g>
-                        </svg>
-                        <span class="art-caption">شيفرة وإضاءة ذهبية</span>
-                    </button>
-                    <button class="art-card reveal" type="button" data-caption="دوائر إلكترونية ومسارات" aria-label="تكبير رسم الدوائر الإلكترونية">
-                        <svg viewBox="0 0 600 360" role="img" aria-label="رسم تجريدي لمسارات ودوائر إلكترونية" xmlns="http://www.w3.org/2000/svg">
-                            <defs><linearGradient id="circuit-bg" x2="1"><stop stop-color="#09101c"/><stop offset=".55" stop-color="#10284b"/><stop offset="1" stop-color="#0b1019"/></linearGradient><radialGradient id="circuit-glow"><stop stop-color="#4f9bff" stop-opacity=".24"/><stop offset="1" stop-color="#4f9bff" stop-opacity="0"/></radialGradient></defs>
-                            <rect width="600" height="360" fill="url(#circuit-bg)"/><circle cx="310" cy="178" r="220" fill="url(#circuit-glow)"/>
-                            <g fill="none" stroke="#5ca5ff" stroke-width="2" stroke-opacity=".75"><path d="M300 180h-94v-58h-62m156 58h95v-90h70m-229 90H125v76h-70m245-76h85v76h80m-165 0v51h-75m75-51v-75"/><circle cx="300" cy="180" r="70"/><circle cx="300" cy="180" r="48"/></g>
-                            <g fill="#f0d389"><circle cx="144" cy="122" r="5"/><circle cx="527" cy="90" r="5"/><circle cx="55" cy="256" r="5"/><circle cx="470" cy="256" r="5"/><circle cx="225" cy="309" r="5"/></g>
-                            <text x="260" y="188" fill="#e8f2ff" font-family="monospace" font-size="22">&lt;/&gt;</text>
-                        </svg>
-                        <span class="art-caption">دوائر إلكترونية ومسارات</span>
-                    </button>
-                    <button class="art-card reveal" type="button" data-caption="شبكة من الأفكار والذكاء الاصطناعي" aria-label="تكبير رسم الشبكة التقنية">
-                        <svg viewBox="0 0 600 360" role="img" aria-label="رسم تجريدي لشبكة عقد مترابطة" xmlns="http://www.w3.org/2000/svg">
-                            <defs><linearGradient id="network-bg" y2="1"><stop stop-color="#16152a"/><stop offset="1" stop-color="#090c14"/></linearGradient><radialGradient id="network-glow"><stop stop-color="#99733e" stop-opacity=".3"/><stop offset="1" stop-color="#99733e" stop-opacity="0"/></radialGradient></defs>
-                            <rect width="600" height="360" fill="url(#network-bg)"/><circle cx="300" cy="175" r="230" fill="url(#network-glow)"/>
-                            <g stroke="#c6a960" stroke-width="1.5" stroke-opacity=".55"><path d="m95 90 125 70 115-75 145 82M95 90l80 180 130-110 118 105 57-188M220 160l-45 110 160-35 22-150m-147 75 225 17M175 270l-80 28 325-3 100-96"/></g>
-                            <g fill="#f1d795"><circle cx="95" cy="90" r="6"/><circle cx="220" cy="160" r="7"/><circle cx="335" cy="85" r="6"/><circle cx="480" cy="167" r="8"/><circle cx="175" cy="270" r="6"/><circle cx="335" cy="235" r="7"/><circle cx="453" cy="340" r="6"/><circle cx="510" cy="152" r="4"/></g>
-                            <g fill="#8fc8ff"><circle cx="300" cy="212" r="3"/><circle cx="395" cy="105" r="3"/><circle cx="250" cy="292" r="3"/></g>
-                        </svg>
-                        <span class="art-caption">شبكة من الأفكار والذكاء الاصطناعي</span>
-                    </button>
+                <div class="upload-panel reveal">
+                    <label for="photo-upload"><strong>أضف صوراً للمعرض</strong></label>
+                    <div class="upload-controls">
+                        <input id="photo-upload" type="file" accept="image/*" multiple>
+                        <span class="small-note" id="gallery-count" aria-live="polite">المعرض جاهز لإضافة الصور</span>
+                    </div>
+                    <p class="message-line" id="gallery-message" aria-live="polite">يمكنك اختيار عدة صور دفعة واحدة. سعة التخزين تعتمد على المساحة المتاحة في المتصفح.</p>
+                </div>
+                <div class="gallery-grid" id="gallery-grid">
+                    <article class="photo-card reveal">
+                        <img src="antoneos.png" alt="الصورة الأصلية لأنطونيوس في مساحة عمله البرمجية" loading="lazy">
+                        <div class="photo-card-body">
+                            <h3>رحلتي في عالم البرمجة</h3>
+                            <label for="portrait-story">قصتي مع هذه الصورة</label>
+                            <textarea class="long-text" id="portrait-story" maxlength="5000">صورتي الأصلية في مساحة العمل البرمجية. أشارك هنا رحلتي في تعلّم البرمجة وبناء المشاريع.</textarea>
+                            <button class="button button-small save-portrait-story" type="button">حفظ الشرح</button>
+                        </div>
+                    </article>
+                    <article class="photo-card reveal">
+                        <img src="antonios-gallery-photo.jpg" alt="رسم تقني لشخصية رقمية أمام دوائر إلكترونية مضيئة" loading="lazy">
+                        <div class="photo-card-body">
+                            <h3>الذكاء الاصطناعي والتقنية</h3>
+                            <label for="tech-image-story">شرح الصورة</label>
+                            <textarea class="long-text" id="tech-image-story" maxlength="5000">صورة تقنية تعبّر عن التقاء البرمجة والذكاء الاصطناعي، وتلهمنا لاستكشاف مستقبل التكنولوجيا.</textarea>
+                            <button class="button button-small save-gallery-story" data-story="tech-image-story" type="button">حفظ الشرح</button>
+                        </div>
+                    </article>
+                    <article class="photo-card reveal">
+                        <img src="antonios-profile.jpg" alt="أنطونيوس في صورته البرمجية الجديدة" loading="lazy">
+                        <div class="photo-card-body">
+                            <h3>صورة من رحلتي البرمجية</h3>
+                            <label for="profile-image-story">قصتي مع الصورة</label>
+                            <textarea class="long-text" id="profile-image-story" maxlength="5000">لحظة من رحلتي في تعلّم لغات البرمجة وتطوير المواقع.</textarea>
+                            <button class="button button-small save-gallery-story" data-story="profile-image-story" type="button">حفظ الشرح</button>
+                        </div>
+                    </article>
+                </div>
+                <div class="gallery-pagination" id="gallery-pagination" hidden>
+                    <button class="button button-small" id="gallery-previous" type="button">الصور الأحدث</button>
+                    <span class="small-note" id="gallery-page-label"></span>
+                    <button class="button button-small" id="gallery-next" type="button">الصور الأقدم</button>
                 </div>
             </div>
         </section>
 
         <section class="section section-alt" id="about" aria-labelledby="about-title">
             <div class="container about-grid">
-                <div class="about-image reveal"><img src="antoneos.png" alt="الصورة المضافة في الموقع لأنطونيوس ميخائيل" loading="lazy"></div>
+                <div class="about-image reveal"><img src="antoneos.png" alt="الصورة الأصلية لأنطونيوس في مساحة عمله البرمجية" loading="lazy"></div>
                 <div class="about-copy reveal">
                     <p class="eyebrow">نبذة شخصية</p>
                     <h2 id="about-title">من أنا؟</h2>
@@ -734,6 +927,7 @@ console.log(`Hello, ${name}!`);</code></pre>
         function setTheme(theme) {
             document.body.dataset.theme = theme;
             themeToggle.setAttribute("aria-label", theme === "dark" ? "تفعيل الوضع النهاري" : "تفعيل الوضع الليلي");
+            document.querySelector('meta[name="theme-color"]').content = theme === "dark" ? "#090b12" : "#f7f9fc";
             try {
                 localStorage.setItem("antonios-theme", theme);
             } catch (error) {
@@ -821,6 +1015,563 @@ console.log(`Hello, ${name}!`);</code></pre>
         });
 
         document.querySelector("#current-year").textContent = String(new Date().getFullYear());
+
+        const levels = [
+            {
+                name: "أساسيات البرمجة",
+                lesson: "فكّر مثل المبرمج",
+                summary: "قسّم المشكلة إلى خطوات صغيرة مرتبة. المتغير يحفظ قيمة، والشرط يختار المسار المناسب، والتكرار يعيد الخطوات عند الحاجة.",
+                code: `const age = 18;
+if (age >= 18) {
+  console.log("مسموح");
+}`,
+                questions: [
+                    { q: "ما أول خطوة لحل مشكلة برمجية؟", options: ["كتابة كود عشوائي", "فهم المشكلة وتقسيمها", "اختيار لون الصفحة", "حذف البيانات"], answer: 1 },
+                    { q: "ما وظيفة المتغير؟", options: ["حفظ قيمة لاستخدامها", "تنسيق النص", "إغلاق البرنامج", "رسم صورة"], answer: 0 },
+                    { q: "متى نستخدم الشرط if؟", options: ["لتكرار كل شيء دائماً", "لاختيار مسار حسب تحقق شرط", "لتغيير اسم الملف", "لعرض صورة فقط"], answer: 1 },
+                    { q: "ما الذي يصف خطوات الحل المرتبة؟", options: ["خوارزمية", "متصفح", "لون", "مجلد"], answer: 0 },
+                    { q: "ماذا تفعل حلقة التكرار؟", options: ["تعيد تنفيذ تعليمات", "تحذف اللغة", "توقف لوحة المفاتيح", "تنشئ صورة"], answer: 0 }
+                ],
+                gift: `هدية المستوى الأول — خطوات التفكير البرمجي
+
+1. اقرأ المشكلة جيداً.
+2. حدّد المدخلات والمخرجات.
+3. قسّم الحل إلى خطوات صغيرة.
+4. اختبر الحالات المختلفة.
+
+مثال JavaScript:
+const numbers = [2, 4, 6];
+const total = numbers.reduce((sum, number) => sum + number, 0);
+console.log(total);`
+            },
+            {
+                name: "بناء صفحات الويب",
+                lesson: "HTML وCSS من الصفر",
+                summary: "تصف HTML بنية المحتوى، بينما تتحكم CSS في ألوانه وتخطيطه. افصل الهيكل عن التنسيق لتحصل على صفحة أوضح وأسهل في التطوير.",
+                code: `<h1 class="title">مرحباً!</h1>
+<style>
+  .title { color: crimson; }
+</style>`,
+                questions: [
+                    { q: "ما دور HTML؟", options: ["هيكلة محتوى الصفحة", "تشغيل قاعدة بيانات", "ضغط الصور", "إدارة نظام التشغيل"], answer: 0 },
+                    { q: "ما دور CSS؟", options: ["تنسيق مظهر الصفحة", "كتابة الخوارزميات فقط", "تخزين الصور", "تصفح الإنترنت"], answer: 0 },
+                    { q: "أي وسم يمثل عنواناً رئيسياً؟", options: ["<p>", "<h1>", "<img>", "<footer>"], answer: 1 },
+                    { q: "كيف نختار عنصراً يحمل class باسم card في CSS؟", options: ["#card", ".card", "card()", "@card"], answer: 1 },
+                    { q: "أي خاصية تضيف مسافة داخل حدود العنصر؟", options: ["padding", "font", "src", "href"], answer: 0 }
+                ],
+                gift: `هدية المستوى الثاني — قالب بطاقة ويب جاهز
+
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>body{font-family:Arial;background:#f4f4f4}.card{padding:24px;border-radius:16px;background:white}</style>
+</head>
+<body><article class="card"><h1>مشروعي الأول</h1><p>أبني صفحات ويب جميلة!</p></article></body>
+</html>`
+            },
+            {
+                name: "البرمجة التفاعلية",
+                lesson: "JavaScript وتفاعل الصفحة",
+                summary: "تضيف JavaScript السلوك إلى صفحات الويب. استمع إلى حدث المستخدم، ثم حدّث العنصر المناسب باستخدام DOM.",
+                code: `const button = document.querySelector("button");
+button.addEventListener("click", () => {
+  alert("أحسنت!");
+});`,
+                questions: [
+                    { q: "ما دور JavaScript في صفحة الويب؟", options: ["تحديد بنية العناوين فقط", "إضافة التفاعل والمنطق", "اختيار اسم النطاق", "تغيير نظام الملفات"], answer: 1 },
+                    { q: "ما الذي يعيده document.querySelector؟", options: ["ملف صورة", "كلمة مرور", "عنصراً مطابقاً من الصفحة", "خادماً جديداً"], answer: 2 },
+                    { q: "أي حدث يحدث عند ضغط المستخدم على زر؟", options: ["click", "paint", "resize-file", "build-html"], answer: 0 },
+                    { q: "بأي كلمة نعرّف متغيراً ثابتاً؟", options: ["style", "const", "select", "href"], answer: 1 },
+                    { q: "ما فائدة addEventListener؟", options: ["تنسيق الخط", "إنشاء وسم HTML", "الاستجابة لحدث", "رفع ملف"], answer: 2 }
+                ],
+                gift: `هدية المستوى الثالث — زر تفاعلي جاهز
+
+<button id="hello">اضغط هنا</button>
+<p id="message"></p>
+<script>
+  document.querySelector("#hello").addEventListener("click", () => {
+    document.querySelector("#message").textContent = "أهلاً بك في عالم JavaScript!";
+  });
+<\/script>`
+            },
+            {
+                name: "مشروع برمجي كامل",
+                lesson: "من الفكرة إلى مشروع متكامل",
+                summary: "حدّد هدف المشروع ومستخدميه، أنشئ نسخة صغيرة قابلة للاستخدام، اختبرها، ثم حسّنها بناءً على الملاحظات.",
+                code: `const project = {
+  goal: "حل مشكلة حقيقية",
+  plan: ["صمّم", "ابنِ", "اختبر", "حسّن"],
+};`,
+                questions: [
+                    { q: "ما أفضل بداية لمشروع جديد؟", options: ["كتابة كل المزايا دفعة واحدة", "تحديد المشكلة والهدف", "اختيار اسم عشوائي", "تجاهل المستخدم"], answer: 1 },
+                    { q: "لماذا نختبر المشروع؟", options: ["للتأكد من عمله واكتشاف الأخطاء", "لزيادة حجم الملفات", "لتغيير لغة البرمجة", "لإخفاء الواجهة"], answer: 0 },
+                    { q: "ماذا يعني MVP في تخطيط المشروع؟", options: ["نسخة بلا هدف", "محرك بحث", "أبسط نسخة مفيدة قابلة للتجربة", "نوع من الصور"], answer: 2 },
+                    { q: "ما الخطوة المفيدة بعد جمع ملاحظات المستخدمين؟", options: ["حذف كل الاختبارات", "تحسين المشروع", "إيقاف التعلّم", "إخفاء الأخطاء"], answer: 1 },
+                    { q: "ما فائدة تقسيم المشروع إلى مهام صغيرة؟", options: ["زيادة التعقيد", "منع التعاون", "تسهيل التنفيذ والمتابعة", "إلغاء التخطيط"], answer: 2 }
+                ],
+                gift: `<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>قائمة مهامي</title>
+  <style>
+    body{max-width:640px;margin:50px auto;padding:20px;font:18px Arial;background:#101827;color:#f5f2ea}
+    form{display:flex;gap:8px}input,button{padding:12px;border:0;border-radius:8px;font:inherit}
+    input{flex:1}button{background:#ed4957;color:white;cursor:pointer}
+    li{display:flex;justify-content:space-between;align-items:center;margin:10px 0;padding:12px;background:#1b2637;border-radius:8px}
+    li.done span{text-decoration:line-through;color:#70e4ad}
+  </style>
+</head>
+<body>
+  <h1>قائمة مهامي</h1>
+  <form id="task-form"><input id="task-input" placeholder="اكتب مهمة جديدة" required><button>إضافة</button></form>
+  <ul id="task-list"></ul>
+  <script>
+    const form=document.querySelector("#task-form");
+    const input=document.querySelector("#task-input");
+    const list=document.querySelector("#task-list");
+    let tasks=JSON.parse(localStorage.getItem("my-tasks")||"[]");
+    function render(){
+      list.replaceChildren();
+      tasks.forEach((task,index)=>{
+        const item=document.createElement("li");
+        item.className=task.done?"done":"";
+        const text=document.createElement("span");
+        text.textContent=task.title;
+        text.onclick=()=>{tasks[index].done=!tasks[index].done;save();};
+        const remove=document.createElement("button");
+        remove.textContent="حذف";
+        remove.onclick=()=>{tasks.splice(index,1);save();};
+        item.append(text,remove);
+        list.append(item);
+      });
+    }
+    function save(){localStorage.setItem("my-tasks",JSON.stringify(tasks));render();}
+    form.addEventListener("submit",event=>{
+      event.preventDefault();
+      tasks.push({title:input.value.trim(),done:false});
+      input.value="";
+      save();
+    });
+    render();
+  <\/script>
+</body>
+</html>`
+            }
+        ];
+        const levelCards = [...document.querySelectorAll(".level-card")];
+        const quizQuestions = document.querySelector("#quiz-questions");
+        const quizMessage = document.querySelector("#quiz-message");
+        const videoPlayer = document.querySelector("#lesson-player");
+        const videoPlaceholder = document.querySelector("#video-placeholder");
+        const videoUrlInput = document.querySelector("#video-url");
+        const videoMessage = document.querySelector("#video-message");
+        const galleryGrid = document.querySelector("#gallery-grid");
+        const galleryMessage = document.querySelector("#gallery-message");
+        const galleryPageSize = 24;
+        const galleryObjectUrls = new Set();
+        let galleryDatabase;
+        let galleryPage = 0;
+        let currentLevel = 0;
+        let completedLevels = [];
+
+        function readLocal(key, fallback) {
+            try {
+                const value = localStorage.getItem(key);
+                return value === null ? fallback : value;
+            } catch (error) {
+                console.warn(`تعذر قراءة ${key} من التخزين المحلي.`, error);
+                return fallback;
+            }
+        }
+
+        function writeLocal(key, value, messageElement) {
+            try {
+                localStorage.setItem(key, value);
+                if (messageElement) setMessage(messageElement, "تم الحفظ على هذا الجهاز.");
+                return true;
+            } catch (error) {
+                console.error(`تعذر حفظ ${key} في التخزين المحلي.`, error);
+                if (messageElement) setMessage(messageElement, "تعذر الحفظ. تحقق من إعدادات التخزين في المتصفح.", true);
+                return false;
+            }
+        }
+
+        function setMessage(element, message, isError = false) {
+            element.textContent = message;
+            element.classList.toggle("is-error", isError);
+        }
+
+        function renderQuiz() {
+            const level = levels[currentLevel];
+            document.querySelector("#quiz-level-title").textContent = `اختبار ${level.name}`;
+            quizQuestions.replaceChildren();
+            level.questions.forEach((question, questionIndex) => {
+                const fieldset = document.createElement("fieldset");
+                fieldset.className = "quiz-question";
+                const legend = document.createElement("legend");
+                legend.textContent = `${questionIndex + 1}. ${question.q}`;
+                fieldset.append(legend);
+                question.options.forEach((option, optionIndex) => {
+                    const label = document.createElement("label");
+                    label.className = "quiz-option";
+                    const input = document.createElement("input");
+                    input.type = "radio";
+                    input.name = `question-${questionIndex}`;
+                    input.value = String(optionIndex);
+                    input.required = optionIndex === 0;
+                    label.append(input, document.createTextNode(option));
+                    fieldset.append(label);
+                });
+                quizQuestions.append(fieldset);
+            });
+            quizMessage.textContent = "";
+            document.querySelector("#celebration-panel").hidden = !completedLevels.includes(currentLevel);
+            document.querySelector("#celebration-title").textContent = `🎉 تهانينا! أتممت ${level.name} بنجاح`;
+            document.querySelector("#celebration-copy").textContent = completedLevels.includes(currentLevel)
+                ? `لقد أتممت ${level.name}. حمّل هديتك، ثم انتقل للمستوى التالي الذي أصبح متاحاً.`
+                : "";
+        }
+
+        function renderProgress() {
+            const completedCount = completedLevels.length;
+            const percentage = Math.round(completedCount / levels.length * 100);
+            document.querySelector("#progress-label").textContent = `${completedCount.toLocaleString("ar")} من ٤ مستويات`;
+            document.querySelector("#progress-percent").textContent = `${percentage.toLocaleString("ar")}٪`;
+            document.querySelector("#progress-bar").style.width = `${percentage}%`;
+            document.querySelector(".progress-track").setAttribute("aria-valuenow", String(percentage));
+            levelCards.forEach((card, index) => {
+                const isComplete = completedLevels.includes(index);
+                const isLocked = index > completedCount;
+                card.disabled = isLocked;
+                card.classList.toggle("is-complete", isComplete);
+                card.classList.toggle("is-active", index === currentLevel);
+                card.querySelector(".level-status").textContent = isComplete
+                    ? "مكتمل — الشهادة والهدية متاحتان"
+                    : isLocked ? "مغلق — أكمل المستوى السابق" : index === currentLevel ? "أنت تدرس هذا المستوى" : "متاح";
+            });
+        }
+
+        function selectLevel(index) {
+            if (index > completedLevels.length || index < 0 || index >= levels.length) return;
+            currentLevel = index;
+            const level = levels[index];
+            document.querySelector("#lesson-level-title").textContent = `المستوى ${["الأول", "الثاني", "الثالث", "الرابع"][index]} — ${level.name}`;
+            document.querySelector("#lesson-title").textContent = level.lesson;
+            document.querySelector("#lesson-summary-title").textContent = level.lesson;
+            document.querySelector("#lesson-summary").textContent = level.summary;
+            document.querySelector("#lesson-code").textContent = level.code;
+            videoPlayer.hidden = true;
+            videoPlayer.removeAttribute("src");
+            videoPlaceholder.hidden = false;
+            const savedVideo = readLocal(`antonios-video-${index}`, "");
+            videoUrlInput.value = savedVideo;
+            if (savedVideo) loadVideo(savedVideo, false);
+            renderQuiz();
+            renderProgress();
+        }
+
+        function loadVideo(rawUrl, showMessage = true) {
+            let videoId = "";
+            try {
+                const url = new URL(rawUrl);
+                if (["youtube.com", "www.youtube.com", "m.youtube.com", "youtu.be", "www.youtube-nocookie.com"].includes(url.hostname)) {
+                    if (url.hostname === "youtu.be") videoId = url.pathname.slice(1);
+                    else if (url.pathname === "/watch") videoId = url.searchParams.get("v") || "";
+                    else videoId = url.pathname.match(/^\/(?:embed|shorts|live)\/([A-Za-z0-9_-]+)/)?.[1] || "";
+                }
+            } catch (error) {
+                if (showMessage) setMessage(videoMessage, "أدخل رابط YouTube صالحاً للدرس.", true);
+                return false;
+            }
+            if (!/^[A-Za-z0-9_-]{11}$/.test(videoId)) {
+                if (showMessage) setMessage(videoMessage, "الرابط غير صالح. استخدم رابط YouTube عادي أو مختصر.", true);
+                return false;
+            }
+            videoPlayer.src = `https://www.youtube-nocookie.com/embed/${videoId}`;
+            videoPlayer.hidden = false;
+            videoPlaceholder.hidden = true;
+            if (showMessage) writeLocal(`antonios-video-${currentLevel}`, rawUrl, videoMessage);
+            return true;
+        }
+
+        try {
+            const savedCompleted = JSON.parse(readLocal("antonios-completed-levels", "[]"));
+            if (Array.isArray(savedCompleted)) {
+                completedLevels = [...new Set(savedCompleted.filter((value) => Number.isInteger(value) && value >= 0 && value < levels.length))]
+                    .sort((a, b) => a - b);
+                while (completedLevels.some((value, index) => value !== index)) completedLevels.pop();
+            }
+        } catch (error) {
+            console.warn("تعذر قراءة تقدم المستويات المحفوظ.", error);
+        }
+        const savedName = readLocal("antonios-learner-name", "");
+        document.querySelector("#learner-name").value = savedName;
+        document.querySelector("#learner-name").addEventListener("input", (event) => {
+            writeLocal("antonios-learner-name", event.target.value);
+        });
+        levelCards.forEach((card) => card.addEventListener("click", () => selectLevel(Number(card.dataset.level))));
+        document.querySelector("#video-link-form").addEventListener("submit", (event) => {
+            event.preventDefault();
+            if (!videoUrlInput.value.trim()) {
+                setMessage(videoMessage, "الصق رابط الفيديو أولاً.", true);
+                return;
+            }
+            loadVideo(videoUrlInput.value.trim());
+        });
+        document.querySelector("#copy-lesson-code").addEventListener("click", async () => {
+            try {
+                await navigator.clipboard.writeText(levels[currentLevel].code);
+                setMessage(videoMessage, "تم نسخ ملخص الكود.");
+            } catch (error) {
+                console.error("تعذر نسخ الكود إلى الحافظة.", error);
+                setMessage(videoMessage, "تعذر النسخ. حدّد الكود وانسخه يدوياً.", true);
+            }
+        });
+        document.querySelector("#quiz-form").addEventListener("submit", (event) => {
+            event.preventDefault();
+            const answers = new FormData(event.currentTarget);
+            const score = levels[currentLevel].questions.reduce((total, question, index) =>
+                total + (Number(answers.get(`question-${index}`)) === question.answer ? 1 : 0), 0);
+            if (score < 4) {
+                setMessage(quizMessage, `حصلت على ${score} من ٥. تحتاج إلى ٤ إجابات صحيحة؛ راجع الملخص وحاول مرة أخرى.`, true);
+                return;
+            }
+            if (!completedLevels.includes(currentLevel)) {
+                completedLevels.push(currentLevel);
+                completedLevels.sort((a, b) => a - b);
+                writeLocal("antonios-completed-levels", JSON.stringify(completedLevels), quizMessage);
+            } else {
+                setMessage(quizMessage, `إجابة رائعة! نتيجتك ${score} من ٥.`);
+            }
+            renderProgress();
+            document.querySelector("#celebration-title").textContent = `🎉 تهانينا! أتممت ${levels[currentLevel].name} بنجاح`;
+            document.querySelector("#celebration-copy").textContent = `لقد اجتزت التحدي بنتيجة ${score} من ٥. خطوتك القادمة هي تحميل هديتك والانتقال إلى المستوى التالي.`;
+            document.querySelector("#celebration-panel").hidden = false;
+        });
+        document.querySelector("#download-certificate").addEventListener("click", () => {
+            const name = document.querySelector("#learner-name").value.trim();
+            if (!name) {
+                document.querySelector("#learner-name").focus();
+                setMessage(quizMessage, "اكتب اسمك أولاً لتخصيص الشهادة.", true);
+                return;
+            }
+            const escapedName = name.replace(/[&<>"']/g, (character) => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&apos;"}[character]));
+            const escapedLevel = levels[currentLevel].name.replace(/[&<>]/g, (character) => ({"&": "&amp;", "<": "&lt;", ">": "&gt;"}[character]));
+            const certificate = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="850" viewBox="0 0 1200 850"><rect width="1200" height="850" fill="#101827"/><rect x="28" y="28" width="1144" height="794" rx="28" fill="none" stroke="#39c887" stroke-width="8"/><text x="600" y="210" fill="#ff737d" font-size="54" text-anchor="middle" font-family="Arial,sans-serif">شهادة إتمام</text><text x="600" y="315" fill="#f5f2ea" font-size="38" text-anchor="middle" font-family="Arial,sans-serif">تشهد منصة أنطونيوس ميخائيل بأن</text><text x="600" y="435" fill="#70e4ad" font-size="58" font-weight="700" text-anchor="middle" font-family="Arial,sans-serif">${escapedName}</text><text x="600" y="530" fill="#f5f2ea" font-size="36" text-anchor="middle" font-family="Arial,sans-serif">قد أتم بنجاح ${escapedLevel}</text><text x="600" y="700" fill="#a4adbd" font-size="26" text-anchor="middle" font-family="Arial,sans-serif">واصل التعلّم، ابنِ أفكارك، وشارك إبداعك</text></svg>`;
+            const link = document.createElement("a");
+            const certificateUrl = URL.createObjectURL(new Blob([certificate], { type: "image/svg+xml;charset=utf-8" }));
+            link.href = certificateUrl;
+            link.download = `شهادة-${name.replace(/[\\/:*?"<>|]/g, "-")}-المستوى-${currentLevel + 1}.svg`;
+            link.click();
+            setTimeout(() => URL.revokeObjectURL(certificateUrl), 1000);
+        });
+        document.querySelector("#download-gift").addEventListener("click", () => {
+            const link = document.createElement("a");
+            const giftUrl = URL.createObjectURL(new Blob([levels[currentLevel].gift], { type: "text/plain;charset=utf-8" }));
+            link.href = giftUrl;
+            link.download = `هدية-المستوى-${currentLevel + 1}${currentLevel === 1 || currentLevel === 3 ? ".html" : ".txt"}`;
+            link.click();
+            setTimeout(() => URL.revokeObjectURL(giftUrl), 1000);
+        });
+        selectLevel(0);
+
+        function openGalleryDatabase() {
+            return new Promise((resolve, reject) => {
+                if (!("indexedDB" in window)) {
+                    reject(new Error("هذا المتصفح لا يدعم التخزين المحلي للصور."));
+                    return;
+                }
+                const request = indexedDB.open("antonios-learning-gallery", 1);
+                request.onupgradeneeded = () => {
+                    const database = request.result;
+                    if (!database.objectStoreNames.contains("photos")) {
+                        const store = database.createObjectStore("photos", { keyPath: "id", autoIncrement: true });
+                        store.createIndex("createdAt", "createdAt");
+                    }
+                };
+                request.onsuccess = () => resolve(request.result);
+                request.onerror = () => reject(request.error || new Error("تعذر فتح مخزن الصور."));
+                request.onblocked = () => reject(new Error("تحديث مخزن الصور معلق بسبب تبويب آخر مفتوح."));
+            });
+        }
+
+        function galleryTransaction(mode, action) {
+            return new Promise((resolve, reject) => {
+                const transaction = galleryDatabase.transaction("photos", mode);
+                const request = action(transaction.objectStore("photos"));
+                request.onsuccess = () => resolve(request.result);
+                request.onerror = () => reject(request.error || new Error("تعذر تنفيذ عملية الصور."));
+                transaction.onabort = () => reject(transaction.error || new Error("أُلغيت عملية الصور."));
+            });
+        }
+
+        function clearGalleryObjectUrls() {
+            galleryObjectUrls.forEach((url) => URL.revokeObjectURL(url));
+            galleryObjectUrls.clear();
+        }
+
+        function createPhotoCard(photo) {
+            const article = document.createElement("article");
+            article.className = "photo-card";
+            article.dataset.uploaded = "";
+            const image = document.createElement("img");
+            const imageUrl = URL.createObjectURL(photo.blob);
+            galleryObjectUrls.add(imageUrl);
+            image.src = imageUrl;
+            image.alt = photo.title;
+            image.loading = "lazy";
+            const body = document.createElement("div");
+            body.className = "photo-card-body";
+            const title = document.createElement("h3");
+            title.textContent = photo.title;
+            const label = document.createElement("label");
+            label.textContent = "شرح الصورة أو الكود";
+            const description = document.createElement("textarea");
+            description.className = "long-text";
+            description.maxLength = 10000;
+            description.value = photo.description || "";
+            const actions = document.createElement("div");
+            actions.className = "photo-actions";
+            const save = document.createElement("button");
+            save.className = "button button-small";
+            save.type = "button";
+            save.textContent = "حفظ الشرح";
+            save.addEventListener("click", async () => {
+                try {
+                    await galleryTransaction("readwrite", (store) => store.put({ ...photo, description: description.value }));
+                    setMessage(galleryMessage, "تم حفظ شرح الصورة.");
+                } catch (error) {
+                    console.error("تعذر حفظ شرح الصورة.", error);
+                    setMessage(galleryMessage, "تعذر حفظ الشرح في مخزن الصور.", true);
+                }
+            });
+            const remove = document.createElement("button");
+            remove.className = "button button-small";
+            remove.type = "button";
+            remove.textContent = "حذف الصورة";
+            remove.addEventListener("click", async () => {
+                try {
+                    await galleryTransaction("readwrite", (store) => store.delete(photo.id));
+                    await renderGallery();
+                    setMessage(galleryMessage, "تم حذف الصورة.");
+                } catch (error) {
+                    console.error("تعذر حذف الصورة.", error);
+                    setMessage(galleryMessage, "تعذر حذف الصورة من المعرض.", true);
+                }
+            });
+            actions.append(save, remove);
+            body.append(title, label, description, actions);
+            article.append(image, body);
+            return article;
+        }
+
+        async function renderGallery() {
+            if (!galleryDatabase) return;
+            clearGalleryObjectUrls();
+            const photoCount = await galleryTransaction("readonly", (store) => store.count());
+            const startAt = Math.max(0, photoCount - (galleryPage + 1) * galleryPageSize);
+            const endBefore = Math.max(0, photoCount - galleryPage * galleryPageSize);
+            const photos = await new Promise((resolve, reject) => {
+                const request = galleryDatabase.transaction("photos", "readonly").objectStore("photos").index("createdAt").openCursor(null, "prev");
+                const results = [];
+                let position = 0;
+                request.onsuccess = () => {
+                    const cursor = request.result;
+                    if (!cursor || position >= endBefore) {
+                        resolve(results);
+                        return;
+                    }
+                    if (position >= startAt) results.push(cursor.value);
+                    position += 1;
+                    cursor.continue();
+                };
+                request.onerror = () => reject(request.error || new Error("تعذر تحميل صور المعرض."));
+            });
+            galleryGrid.querySelectorAll(".photo-card[data-uploaded]").forEach((card) => card.remove());
+            const marker = galleryGrid.firstElementChild;
+            photos.forEach((photo) => galleryGrid.insertBefore(createPhotoCard(photo), marker));
+            document.querySelector("#gallery-count").textContent = `${photoCount.toLocaleString("ar")} صورة مرفوعة`;
+            const pagination = document.querySelector("#gallery-pagination");
+            pagination.hidden = photoCount <= galleryPageSize;
+            document.querySelector("#gallery-page-label").textContent = `صفحة ${(galleryPage + 1).toLocaleString("ar")}`;
+            document.querySelector("#gallery-previous").disabled = galleryPage === 0;
+            document.querySelector("#gallery-next").disabled = (galleryPage + 1) * galleryPageSize >= photoCount;
+        }
+
+        document.querySelector("#gallery-previous").addEventListener("click", async () => {
+            if (galleryPage === 0) return;
+            galleryPage -= 1;
+            try { await renderGallery(); } catch (error) {
+                console.error("تعذر عرض صور الصفحة.", error);
+                setMessage(galleryMessage, "تعذر تحميل هذه الصفحة من الصور.", true);
+            }
+        });
+        document.querySelector("#gallery-next").addEventListener("click", async () => {
+            galleryPage += 1;
+            try { await renderGallery(); } catch (error) {
+                galleryPage -= 1;
+                console.error("تعذر عرض صور الصفحة.", error);
+                setMessage(galleryMessage, "تعذر تحميل هذه الصفحة من الصور.", true);
+            }
+        });
+        document.querySelector("#photo-upload").addEventListener("change", async (event) => {
+            const files = [...event.target.files];
+            if (!files.length) return;
+            if (!galleryDatabase) {
+                setMessage(galleryMessage, "مخزن الصور غير متاح في هذا المتصفح.", true);
+                return;
+            }
+            let saved = 0;
+            const rejected = [];
+            for (const file of files) {
+                if (!file.type.startsWith("image/")) {
+                    rejected.push(file.name);
+                    continue;
+                }
+                try {
+                    await galleryTransaction("readwrite", (store) => store.add({
+                        title: file.name,
+                        description: "",
+                        blob: file,
+                        createdAt: Date.now() + saved
+                    }));
+                    saved += 1;
+                } catch (error) {
+                    console.error(`تعذر حفظ الصورة ${file.name}.`, error);
+                    rejected.push(file.name);
+                }
+            }
+            galleryPage = 0;
+            try {
+                await renderGallery();
+                const suffix = rejected.length ? ` وتعذر حفظ ${rejected.length} ملفاً (${rejected.slice(0, 3).join("، ")}).` : "";
+                setMessage(galleryMessage, `تم حفظ ${saved} صورة.${suffix}`, rejected.length > 0);
+            } catch (error) {
+                console.error("تعذر تحديث معرض الصور بعد الرفع.", error);
+                setMessage(galleryMessage, "حُفظت بعض الصور لكن تعذر تحديث المعرض. أعد تحميل الصفحة.", true);
+            }
+            event.target.value = "";
+        });
+        document.querySelector(".save-portrait-story").addEventListener("click", () => {
+            writeLocal("antonios-portrait-story", document.querySelector("#portrait-story").value, galleryMessage);
+        });
+        for (const storyInput of document.querySelectorAll("#gallery-grid .photo-card textarea")) {
+            const key = `antonios-gallery-story-${storyInput.id}`;
+            storyInput.value = readLocal(key, storyInput.value);
+            const saveButton = storyInput.closest(".photo-card-body").querySelector(".save-gallery-story, .save-portrait-story");
+            saveButton.addEventListener("click", () => writeLocal(key, storyInput.value, galleryMessage));
+        }
+        openGalleryDatabase().then((database) => {
+            galleryDatabase = database;
+            return renderGallery();
+        }).catch((error) => {
+            console.error("تعذر تهيئة معرض الصور.", error);
+            setMessage(galleryMessage, `${error.message} جرّب فتح الصفحة من خادم محلي.`, true);
+        });
 
         for (const artButton of document.querySelectorAll(".art-card")) {
             artButton.addEventListener("click", () => {
